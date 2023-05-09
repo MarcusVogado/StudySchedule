@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31611.283
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudySchedule", "StudySchedule\StudySchedule.csproj", "{B80250D9-3CD0-4C81-B265-B14407B920E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MigrationApp", "MigrationApp", "{0F70E745-9C15-46FE-A4AC-E547425E5351}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationLibrary", "MigrationLibrary\MigrationLibrary.csproj", "{12B1E66F-69C1-4FBF-9A73-11D38F24053C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B80250D9-3CD0-4C81-B265-B14407B920E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B80250D9-3CD0-4C81-B265-B14407B920E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B80250D9-3CD0-4C81-B265-B14407B920E6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B80250D9-3CD0-4C81-B265-B14407B920E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B80250D9-3CD0-4C81-B265-B14407B920E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B80250D9-3CD0-4C81-B265-B14407B920E6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{12B1E66F-69C1-4FBF-9A73-11D38F24053C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12B1E66F-69C1-4FBF-9A73-11D38F24053C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12B1E66F-69C1-4FBF-9A73-11D38F24053C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12B1E66F-69C1-4FBF-9A73-11D38F24053C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{12B1E66F-69C1-4FBF-9A73-11D38F24053C} = {0F70E745-9C15-46FE-A4AC-E547425E5351}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+	EndGlobalSection
+EndGlobal
