@@ -36,13 +36,9 @@ namespace StudySchedule.Services
         public bool DeleteAgenda(Agenda agendaiD)
         {
             var agenda = GetAgenda(agendaiD);
-            if (agenda != null)
-            {
-                _dbStudy.Agendas.Remove(agenda);
-                _dbStudy.SaveChanges();
-                return true;
-            }
-            return false;
+            _dbStudy.Agendas.Remove(agenda);
+            int linha = _dbStudy.SaveChanges();
+            return (linha > 0) ? true : false;
         }
 
         public Agenda GetAgenda(Agenda agendaId)
@@ -65,16 +61,12 @@ namespace StudySchedule.Services
             return agenda;
         }
 
-        public bool UpdateAgenda(Agenda agenda)
+        public async Task<bool> UpdateAgenda(Agenda agenda)
         {
             var agendaExistin = GetAgenda(agenda);
-            if (agendaExistin != null)
-            {
-                _dbStudy.Agendas.Update(agenda);
-                _dbStudy.SaveChanges();
-                return true;
-            }
-            return false;
+            _dbStudy.Agendas.Update(agenda);
+            int linha = await _dbStudy.SaveChangesAsync();
+            return (linha > 0) ? true : false;
         }
     }
 }
