@@ -10,9 +10,10 @@ namespace StudySchedule.Contracts
     public interface IServiceAgenda
     {
         public bool Create(Agenda agenda);
-        public ICollection<Agenda> GetAgendaList();
-        public void UpdateAgenda(Agenda agenda);
-        public void DeleteAgenda(Agenda agendaiD);
+        public ICollection<Agenda> GetAgendaList(string diaSemana);
+        public Agenda GetAgenda(Agenda agendaId);
+        public bool UpdateAgenda(Agenda agenda);
+        public bool DeleteAgenda(Agenda agendaiD);
         
     }
 }

@@ -12,7 +12,7 @@ namespace StudySchedule.Contracts
         public void Create(Materia materia);
         public ICollection<Materia> GetMateria(Materia materiaId);
         public void Update(Materia materia);
-        public void Delete(Materia materia);
+        public void Delete(Materia materiaId);
 
     }
 }
