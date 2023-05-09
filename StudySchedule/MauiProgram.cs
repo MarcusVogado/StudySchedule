@@ -40,6 +40,9 @@ public static class MauiProgram
             SQLitePCL.Batteries_V2.Init();
             databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..", "Library", databaseName);
         }
-		return databasePath;
+        // add other platforms if needed
+		// adicione outras plataformas se necessario para obter o path combine
+        
+        return databasePath;
 	}
 }
