@@ -19,6 +19,7 @@ namespace StudySchedule.Services
 
         public bool Create(Agenda agenda)
         {
+            //TODO- ADICIONARA ALGORITMO PARA VERIFICAÇÃO DE HORÁRIOS ANTES DE CADASTRAR AGENDA
             try
             {
                 _dbStudy.Agendas.Add(agenda);
