@@ -7,28 +7,29 @@
     xmlns:pages="clr-namespace:StudySchedule.Pages"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Shell.FlyoutBehavior="Disabled"
+    FlyoutHeaderBehavior="CollapseOnScroll"
     BackgroundColor="#01403B"
     TabBarBackgroundColor="#01403B"
     TabBarDisabledColor="White"
     TabBarUnselectedColor="#ccc"
     TabBarTitleColor="White"
+    
     >
     <Shell.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="#01403B" StatusBarStyle="LightContent" />       
-    </Shell.Behaviors>
-    <TabBar>
-
-        <ShellContent         
-        Icon="calendar.png"
-        Title="AGENDA"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-        <ShellContent
-        Icon="book.png"
-        Title="MATÉRIAS"
-        ContentTemplate="{DataTemplate pages:MateriaPage}"
-        Route="MateriaPage" />
+        <toolkit:StatusBarBehavior StatusBarColor="#01403B" StatusBarStyle="LightContent" />
+    </Shell.Behaviors>  
+     <TabBar>
+        <Tab Icon="calendar.png"
+             Title="AGENDA">
+            <ShellContent
+                    ContentTemplate="{DataTemplate local:MainPage}"
+                    Route="MainPage" />
+        </Tab>
+        <Tab  Icon="book.png"
+              Title="MATÉRIAS">
+            <ShellContent 
+                    ContentTemplate="{DataTemplate pages:MateriaPage}"
+                    Route="MateriaPage" />
+        </Tab>    
     </TabBar>
-    
-
 </Shell>

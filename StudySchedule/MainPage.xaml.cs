@@ -8,6 +8,10 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
-	
+
+    private void MenuEvent_Clicked(object sender, TappedEventArgs e)
+    {
+
+    }
 }
 

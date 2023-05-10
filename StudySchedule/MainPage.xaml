@@ -4,6 +4,56 @@
              x:Class="StudySchedule.MainPage"             
              Title="">
 
-    
+   
+    <Grid IgnoreSafeArea="{OnPlatform Android=false, iOS=true}">
+        <!-- MenuGrid-->
+        <Grid
+            x:Name="MenuContainer"    
+            IgnoreSafeArea="{OnPlatform Android=false, iOS=true}"
+            >
+            <!-- MenuImage-->
+            <Border
+                Grid.Row="0"
+                WidthRequest="40"
+                HeightRequest="40"
+                VerticalOptions="Start"
+                HorizontalOptions="Start"
+               >
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>                    
+                </Border.StrokeShape>
+               
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="MenuEvent_Clicked"/>
+                </Border.GestureRecognizers>
+                <Image
+                    Source="menu.png"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="30"
+                    HeightRequest="30"
+                   
+                />   
+            </Border>
+            <Label Grid.Row="0"
+                   Text="AGENDA"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   TextColor="{StaticResource Primary}"
+                   FontAttributes="Bold"
+                   FontSize="30"
+                   BackgroundColor="{StaticResource Secondary}"/>
+
+
+        </Grid>
+
+        <Grid x:Name="MainContent"
+              ColumnDefinitions="*,auto"
+              RowDefinitions="*,auto"
+              IgnoreSafeArea="{OnPlatform Android=false, iOS=true}">
+            
+        </Grid>
+        
+    </Grid>
 
 </ContentPage>
