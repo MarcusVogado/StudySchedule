@@ -7,8 +7,7 @@
     <Grid IgnoreSafeArea="{OnPlatform Android=false, iOS=true}"
           RowDefinitions="*,auto">
         <!-- MenuGrid-->
-        <Grid
-            x:Name="MenuContainer"
+        <Grid x:Name="MenuContainer"
             IsVisible="False"
             IgnoreSafeArea="{OnPlatform Android=true, iOS=True}">
             <Grid.Background>
@@ -17,14 +16,11 @@
                     <GradientStop Color="#000000" Offset="1.0"/>
                 </LinearGradientBrush>
             </Grid.Background>
-
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Tapped="GridArea_Tapped" />
             </Grid.GestureRecognizers>
-
             <VerticalStackLayout Margin="0,50,0,0"
-                HorizontalOptions="End"
-                >
+                HorizontalOptions="End">
                 <Grid RowSpacing="15">
                     <Grid.RowDefinitions>
                         <RowDefinition />
@@ -35,8 +31,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    
+                    </Grid.ColumnDefinitions>                    
                     <Label              
                             Text="MENU"
                             FontAttributes="Bold"
@@ -176,13 +171,8 @@
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Sunday_Clicked"/>
                     </Label.GestureRecognizers>
-                </Label>
-                
+                </Label>                
             </HorizontalStackLayout> 
-        </Grid>       
-        
-            
-            
+        </Grid>     
     </Grid>
-
 </ContentPage>
