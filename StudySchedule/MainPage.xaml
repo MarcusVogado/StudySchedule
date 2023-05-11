@@ -36,17 +36,13 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-
-
+                    
                     <Label              
                             Text="MENU"
                             FontAttributes="Bold"
                             FontSize="18"
                             TextColor="White"                    
-                            HorizontalOptions="End"
-                         
-                        />
-                   
+                            HorizontalOptions="End"/>                   
 
                     <Label    
                             Grid.Row="2"

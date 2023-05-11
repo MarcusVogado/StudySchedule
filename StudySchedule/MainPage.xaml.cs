@@ -16,8 +16,8 @@ public partial class MainPage : ContentPage
     async private void MenuEvent_Clicked(object sender, TappedEventArgs e)
     {
         _ = MainContent.TranslateTo(-this.Width * 0.5, this.Height * 0.1, AnimationDuration, Easing.CubicIn);
-        await MainContent.ScaleTo(0.8, AnimationDuration);
-        _ = MainContent.FadeTo(0.8, AnimationDuration);
+        await MainContent.ScaleTo(0.9, AnimationDuration);
+        _ = MainContent.FadeTo(0.9, AnimationDuration);
         MenuContainer.IsVisible = true;
     }
     async private void GridArea_Tapped(object sender, TappedEventArgs e)

@@ -13,6 +13,7 @@ namespace MigrationLibrary.Models
         public int Id { get; set; }
         [Required]
         public string NomeMateria { get; set; } = null!;
+        public string BackGroundColor { get; set; } = null!;
 
         public ICollection<Materia> Materias { get; set; }= new List<Materia>();
     }

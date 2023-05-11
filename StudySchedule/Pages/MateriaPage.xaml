@@ -6,7 +6,7 @@
              >
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Cadastrar, Alterar e Excluir Matéria de estudo"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>
