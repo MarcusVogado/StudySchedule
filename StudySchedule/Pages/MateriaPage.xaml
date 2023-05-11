@@ -2,12 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudySchedule.Pages.MateriaPage"             
-             Title="Minhas Matérias"
-             >
-    <VerticalStackLayout>
-        <Label 
-            Text="Cadastrar, Alterar e Excluir Matéria de estudo"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Minhas Matérias">
+    <Grid>
+        <Grid>
+            <ScrollView HorizontalScrollBarVisibility="Never"
+                        VerticalScrollBarVisibility="Never">
+                <CollectionView x:Name="MateriaCollection">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="10,10,10,0">
+                                <Label Text="{Binding NomeMateria}"
+                                       HorizontalTextAlignment="Center"/>
+                                <Frame.Triggers>
+                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="1">
+                                        <Setter Property="BackgroundColor" Value="Aqua"/>
+                                    </DataTrigger>
+                                </Frame.Triggers>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView> 
+            </ScrollView>
+        </Grid>        
+    </Grid>
 </ContentPage>
