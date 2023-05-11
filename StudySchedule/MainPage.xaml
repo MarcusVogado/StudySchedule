@@ -3,16 +3,94 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudySchedule.MainPage"             
              Title="">
-
    
     <Grid IgnoreSafeArea="{OnPlatform Android=false, iOS=true}"
           RowDefinitions="*,auto">
         <!-- MenuGrid-->
         <Grid
-            x:Name="MenuContainer"    
-            IgnoreSafeArea="{OnPlatform Android=false, iOS=true}"
-             RowDefinitions="*,auto">
-            <!-- MenuImage-->
+            x:Name="MenuContainer"
+            IsVisible="False"
+            IgnoreSafeArea="{OnPlatform Android=true, iOS=True}">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#ccc" Offset="0.0" />
+                    <GradientStop Color="#000000" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GridArea_Tapped" />
+            </Grid.GestureRecognizers>
+
+            <VerticalStackLayout Margin="0,50,0,0"
+                HorizontalOptions="End"
+                >
+                <Grid RowSpacing="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Label              
+                            Text="MENU"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            TextColor="White"                    
+                            HorizontalOptions="End"
+                         
+                        />
+                   
+
+                    <Label    
+                            Grid.Row="2"
+                            Text="MinhasMatérias"
+                            Style="{StaticResource labelForMenu}"
+                            HorizontalOptions="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToMateriaPage_Clicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <ImageButton Grid.Column="1"
+                           Grid.Row="2"
+                           Source="library.png"
+                           WidthRequest="25"
+                           HeightRequest="25"
+                           Command="GoToMateriaPage_Clicked"
+                           />
+                    
+                    <Label   
+                            Grid.Row="3"              
+                            Text="Info"
+                            Style="{StaticResource labelForMenu}"
+                            HorizontalOptions="End" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToInfoPage_Clicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <ImageButton Grid.Column="1"
+                           Grid.Row="3"
+                           Source="info.png"
+                           WidthRequest="25"
+                           HeightRequest="25"
+                           Command="GoToInfoPage_Clicked"/>
+                </Grid>  
+            </VerticalStackLayout>
+        </Grid>
+
+
+
+
+        <Grid  x:Name="MainContent"
+              ColumnDefinitions="*,auto"
+              RowDefinitions="*,auto"
+              IgnoreSafeArea="{OnPlatform Android=false, iOS=true}">           
             <StackLayout  Grid.Row="0"
                                     BackgroundColor="{StaticResource Primary}" 
                                     VerticalOptions="Start"
@@ -48,18 +126,78 @@
                     WidthRequest="30"
                     HeightRequest="30"
                    
-                />   
+                >
+                    <Image.Clip>
+                        <EllipseGeometry
+                            Center="25,25"
+                            RadiusX="20"
+                            RadiusY="20"/>
+                    </Image.Clip>
+                </Image>
             </Border>
-          
+            <HorizontalStackLayout Grid.Row="0" 
+                                   Padding="0,40,0,0"
+                                   Margin="0">
+                <Label Style="{StaticResource Key=labelForDays}"                   
+                       Text="Seg.">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Monday_Clicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
                 
-        </Grid>
-
-        <Grid x:Name="MainContent"
-              ColumnDefinitions="*,auto"
-              RowDefinitions="*,auto"
-              IgnoreSafeArea="{OnPlatform Android=false, iOS=true}">            
-        </Grid>
+                <Label
+                    Style="{StaticResource Key=labelForDays}"
+                    Text="Terç.">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tuesday_Clicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <Label 
+                    Style="{StaticResource Key=labelForDays}"
+                    Text="Qua.">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Wednesday_Clicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <Label 
+                    Style="{StaticResource Key=labelForDays}"
+                    Text="Qui.">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Thursday_Clicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <Label 
+                    Style="{StaticResource Key=labelForDays}"
+                    Text="Sex.">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Friday_Clicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <Label 
+                    Style="{StaticResource Key=labelForDays}"
+                    Text="Sáb.">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Saturday_Clicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <Label 
+                    Style="{StaticResource Key=labelForDays}"
+                    Text="Dom.">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Sunday_Clicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+            </HorizontalStackLayout> 
+        </Grid>       
         
+            
+            
     </Grid>
 
 </ContentPage>
