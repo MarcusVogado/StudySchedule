@@ -1,4 +1,5 @@
 ﻿using MigrationLibrary.Models;
+using StudySchedule.Pages;
 
 namespace StudySchedule;
 
@@ -11,7 +12,7 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
-
+    #region Anamation for Menu
     async private void MenuEvent_Clicked(object sender, TappedEventArgs e)
     {
         _ = MainContent.TranslateTo(-this.Width * 0.5, this.Height * 0.1, AnimationDuration, Easing.CubicIn);
@@ -30,6 +31,8 @@ public partial class MainPage : ContentPage
         _ = MainContent.ScaleTo(1, AnimationDuration);
         await MainContent.TranslateTo(0, 0, AnimationDuration, Easing.CubicIn);
     }
+    #endregion
+
     #region Days List For Clicked
     private void Monday_Clicked(object sender, TappedEventArgs e)
     {
@@ -69,16 +72,17 @@ public partial class MainPage : ContentPage
     #endregion
 
     #region MenuNavigation
-    private void GoToMateriaPage_Clicked(object sender, TappedEventArgs e)
+    async private void GoToMateriaPage_Clicked(object sender, TappedEventArgs e)
     {
-
+        await Navigation.PushAsync(new MateriaPage());
     }
-    private void GoToInfoPage_Clicked(object sender, TappedEventArgs e)
+    async private void GoToInfoPage_Clicked(object sender, TappedEventArgs e)
     {
-
+        await Navigation.PushAsync(new Info());
     }
+    #endregion
 }
-#endregion
+
 
 
 
