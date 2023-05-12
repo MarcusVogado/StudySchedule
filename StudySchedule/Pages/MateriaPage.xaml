@@ -11,23 +11,21 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Frame Margin="10,10,10,10"
-                                   WidthRequest="320"
-                                   HeightRequest="80"
-                                   >
+                                   WidthRequest="330"
+                                   HeightRequest="80">
                                 <Label Text="{Binding NomeMateria}"
                                        TextColor="White"
                                        FontAttributes="Bold"
-                                       FontSize="15"
+                                       FontSize="12"
                                        CharacterSpacing="1"
-                                       MaxLines="2"
-                                       
+                                       MaxLines="2"                                       
                                        VerticalTextAlignment="Center"
                                        HorizontalTextAlignment="Center">
                                     <Label.Shadow>
                                         <Shadow Brush="Black"
-                                                Offset="10,10"
-                                                Radius="25"
-                                                Opacity="3"
+                                                Offset="15,0"
+                                                Radius="20"
+                                                Opacity="1"
                                                 />
                                     </Label.Shadow>                                    
                                 </Label>

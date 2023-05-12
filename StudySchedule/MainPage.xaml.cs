@@ -6,7 +6,29 @@ namespace StudySchedule;
 public partial class MainPage : ContentPage
 {
     private const uint AnimationDuration = 800u;
-
+    ICollection<Agenda> agendas = new List<Agenda> {
+    new Agenda{NotificationStatus=true,DiaSemana="Segunda",HoraInicio=DateTime.Parse("08:00:00"),HoraFim = DateTime.Parse("08:40:00"),MateriaId=1,},
+    new Agenda{NotificationStatus=true,DiaSemana="Segunda",HoraInicio=DateTime.Parse("08:41:00"),HoraFim = DateTime.Parse("09:40:00"),MateriaId=2,},
+    new Agenda{NotificationStatus=true,DiaSemana="Segunda",HoraInicio=DateTime.Parse("10:00:00"),HoraFim = DateTime.Parse("09:40:00"),MateriaId=2,},
+    };
+    List<Materia> listMateria = new List<Materia> {
+        new Materia {NomeMateria="Portugues",Id=1,BackGroundColor= "1" },
+        new Materia {NomeMateria="Matemática",Id=2,BackGroundColor= "2" },
+        new Materia {NomeMateria="Programação Orientada a Objetos",Id=3,BackGroundColor= "3" },
+         new Materia {NomeMateria="Programação Orientada a Objetos",Id=4,BackGroundColor= "4" },
+          new Materia {NomeMateria="Programação Orientada a Objetos",Id=5,BackGroundColor= "5" },
+           new Materia {NomeMateria="Programação Orientada a Objetos",Id=6,BackGroundColor= "6" },
+            new Materia {NomeMateria="Programação Orientada a Objetos",Id=7,BackGroundColor= "7" },
+             new Materia {NomeMateria="Programação Orientada a Objetos",Id=8,BackGroundColor= "8" },
+              new Materia {NomeMateria="Programação Orientada a Objetos",Id=9,BackGroundColor= "9" },
+               new Materia {NomeMateria="Programação Orientada a Objetos",Id=10,BackGroundColor= "10" },
+                new Materia {NomeMateria="Programação Orientada a Objetos",Id=11,BackGroundColor= "11" },
+                 new Materia {NomeMateria="Programação Orientada a Objetos",Id=12,BackGroundColor= "12" },
+                  new Materia {NomeMateria="Programação Orientada a Objetos",Id=13,BackGroundColor= "3" },
+                   new Materia {NomeMateria="Programação Orientada a Objetos",Id=14,BackGroundColor= "4" },
+                   new Materia {NomeMateria="Programação Orientada a Objetos",Id=15,BackGroundColor= "5" },
+                   new Materia {NomeMateria="Programação Orientada a Objetos",Id=16,BackGroundColor= "6" },
+    };
 
     public MainPage()
 	{
@@ -36,8 +58,17 @@ public partial class MainPage : ContentPage
     #region Days List For Clicked
     private void Monday_Clicked(object sender, TappedEventArgs e)
     {
-
-    }
+        var agendaCollection = from agenda in agendas
+                               join mat in listMateria
+                               on agenda.MateriaId equals mat.Id
+                               select new{
+                                           Agenda = agenda,
+                                           Materia = mat,
+                               };
+                                        
+        AgendaCollection.ItemsSource= agendaCollection;
+     
+    }     
 
     private void Tuesday_Clicked(object sender, TappedEventArgs e)
     {

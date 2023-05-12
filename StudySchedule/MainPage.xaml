@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudySchedule.MainPage"             
              Title="">
-   
-    <Grid IgnoreSafeArea="{OnPlatform Android=false, iOS=true}"
+
+    <Grid IgnoreSafeArea="{OnPlatform Android=true, iOS=true}"
           RowDefinitions="*,auto">
         <!-- MenuGrid-->
         <Grid x:Name="MenuContainer"
@@ -31,13 +31,13 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>                    
+                    </Grid.ColumnDefinitions>
                     <Label              
                             Text="MENU"
                             FontAttributes="Bold"
                             FontSize="18"
                             TextColor="White"                    
-                            HorizontalOptions="End"/>                   
+                            HorizontalOptions="End"/>
 
                     <Label    
                             Grid.Row="2"
@@ -53,7 +53,7 @@
                            Source="library.png"
                            WidthRequest="25"
                            HeightRequest="25"/>
-                    
+
                     <Label   
                             Grid.Row="3"              
                             Text="Info"
@@ -68,14 +68,14 @@
                            Source="info.png"
                            WidthRequest="25"
                            HeightRequest="25"/>
-                </Grid>  
+                </Grid>
             </VerticalStackLayout>
         </Grid>
         <!--MainContent-->
         <Grid  x:Name="MainContent"
               ColumnDefinitions="*,auto"
               RowDefinitions="*,auto"
-              IgnoreSafeArea="{OnPlatform Android=false, iOS=true}">           
+              IgnoreSafeArea="{OnPlatform Android=true, iOS=true}">
             <StackLayout  Grid.Row="0"
                           BackgroundColor="{StaticResource Primary}" 
                           VerticalOptions="Start"
@@ -96,8 +96,8 @@
                 VerticalOptions="Start"
                 HorizontalOptions="Start">
                 <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="5"/>                    
-                </Border.StrokeShape>               
+                    <RoundRectangle CornerRadius="5"/>
+                </Border.StrokeShape>
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Tapped="MenuEvent_Clicked"/>
                 </Border.GestureRecognizers>
@@ -124,7 +124,7 @@
                         <TapGestureRecognizer Tapped="Monday_Clicked"/>
                     </Label.GestureRecognizers>
                 </Label>
-                
+
                 <Label
                     Style="{StaticResource Key=labelForDays}"
                     Text="Terç.">
@@ -132,7 +132,7 @@
                         <TapGestureRecognizer Tapped="Tuesday_Clicked"/>
                     </Label.GestureRecognizers>
                 </Label>
-                
+
                 <Label 
                     Style="{StaticResource Key=labelForDays}"
                     Text="Qua.">
@@ -140,7 +140,7 @@
                         <TapGestureRecognizer Tapped="Wednesday_Clicked"/>
                     </Label.GestureRecognizers>
                 </Label>
-                
+
                 <Label 
                     Style="{StaticResource Key=labelForDays}"
                     Text="Qui.">
@@ -148,7 +148,7 @@
                         <TapGestureRecognizer Tapped="Thursday_Clicked"/>
                     </Label.GestureRecognizers>
                 </Label>
-                
+
                 <Label 
                     Style="{StaticResource Key=labelForDays}"
                     Text="Sex.">
@@ -156,7 +156,7 @@
                         <TapGestureRecognizer Tapped="Friday_Clicked"/>
                     </Label.GestureRecognizers>
                 </Label>
-                
+
                 <Label 
                     Style="{StaticResource Key=labelForDays}"
                     Text="Sáb.">
@@ -164,15 +164,107 @@
                         <TapGestureRecognizer Tapped="Saturday_Clicked"/>
                     </Label.GestureRecognizers>
                 </Label>
-                
+
                 <Label 
                     Style="{StaticResource Key=labelForDays}"
                     Text="Dom.">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Sunday_Clicked"/>
                     </Label.GestureRecognizers>
-                </Label>                
-            </HorizontalStackLayout> 
-        </Grid>     
+                </Label>
+            </HorizontalStackLayout>
+
+            <Grid Grid.Row="0"
+                  Padding="0,100,0,0">
+                <ScrollView HorizontalScrollBarVisibility="Never"
+                        VerticalScrollBarVisibility="Never">
+                    <CollectionView x:Name="AgendaCollection">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Margin="10,10,10,10" BackgroundColor="Aqua">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding Agenda.HoraInicio}"
+                                       TextColor="White"
+                                       FontAttributes="Bold"
+                                       FontSize="12"
+                                       CharacterSpacing="1"
+                                       MaxLines="2"                                       
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center">
+                                            <Label.Shadow>
+                                                <Shadow Brush="Black"
+                                                Offset="15,0"
+                                                Radius="20"
+                                                Opacity="1"
+                                                />
+                                            </Label.Shadow>
+                                        </Label>
+                                        <Label  Grid.Row="1"
+                                            Text="{Binding Materia.NomeMateria}"
+                                       TextColor="White"
+                                       FontAttributes="Bold"
+                                       FontSize="12"
+                                       CharacterSpacing="1"
+                                       MaxLines="2"                                       
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center">
+                                            <Label.Shadow>
+                                                <Shadow Brush="Black"
+                                                Offset="15,0"
+                                                Radius="20"
+                                                Opacity="1"
+                                                />
+                                            </Label.Shadow>
+                                        </Label>
+                                    </Grid>                                  
+                                    
+                                    <Frame.Triggers>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="1">
+                                            <Setter Property="BackgroundColor" Value="Aqua"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="2">
+                                            <Setter Property="BackgroundColor" Value="Blue"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="3">
+                                            <Setter Property="BackgroundColor" Value="BlueViolet"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="4">
+                                            <Setter Property="BackgroundColor" Value="Violet"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="5">
+                                            <Setter Property="BackgroundColor" Value="Yellow"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="6">
+                                            <Setter Property="BackgroundColor" Value="Gold"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="7">
+                                            <Setter Property="BackgroundColor" Value="Green"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="8">
+                                            <Setter Property="BackgroundColor" Value="LightGreen"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="9">
+                                            <Setter Property="BackgroundColor" Value="Red"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="10">
+                                            <Setter Property="BackgroundColor" Value="LightCoral"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="11">
+                                            <Setter Property="BackgroundColor" Value="Gray"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="12">
+                                            <Setter Property="BackgroundColor" Value="LightGray"/>
+                                        </DataTrigger>
+                                    </Frame.Triggers>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+            </Grid>
+        </Grid>
     </Grid>
 </ContentPage>
