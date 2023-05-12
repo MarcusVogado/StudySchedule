@@ -12,7 +12,8 @@
                         <DataTemplate>
                             <Frame Margin="10,10,10,10"
                                    WidthRequest="320"
-                                   HeightRequest="80">
+                                   HeightRequest="80"
+                                   >
                                 <Label Text="{Binding NomeMateria}"
                                        TextColor="White"
                                        FontAttributes="Bold"
