@@ -13,7 +13,6 @@
     TabBarDisabledColor="White"
     TabBarUnselectedColor="#ccc"
     TabBarTitleColor="White"
-    
     >
     <Shell.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="#01403B" StatusBarStyle="LightContent" />

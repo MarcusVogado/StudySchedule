@@ -9,13 +9,14 @@ public partial class MainPage : ContentPage
     ICollection<Agenda> agendas = new List<Agenda> {
     new Agenda{NotificationStatus=true,DiaSemana="Segunda",HoraInicio=DateTime.Parse("08:00:00"),HoraFim = DateTime.Parse("08:40:00"),MateriaId=1,},
     new Agenda{NotificationStatus=true,DiaSemana="Segunda",HoraInicio=DateTime.Parse("08:41:00"),HoraFim = DateTime.Parse("09:40:00"),MateriaId=2,},
-    new Agenda{NotificationStatus=true,DiaSemana="Segunda",HoraInicio=DateTime.Parse("10:00:00"),HoraFim = DateTime.Parse("09:40:00"),MateriaId=2,},
+    new Agenda{NotificationStatus=true,DiaSemana="Segunda",HoraInicio=DateTime.Parse("10:00:00"),HoraFim = DateTime.Parse("09:40:00"),MateriaId=3,},
+    new Agenda{NotificationStatus=true,DiaSemana="Segunda",HoraInicio=DateTime.Parse("10:00:00"),HoraFim = DateTime.Parse("09:40:00"),MateriaId=4,},
     };
     List<Materia> listMateria = new List<Materia> {
-        new Materia {NomeMateria="Portugues",Id=1,BackGroundColor= "1" },
+        new Materia {NomeMateria="Português",Id=1,BackGroundColor= "1" },
         new Materia {NomeMateria="Matemática",Id=2,BackGroundColor= "2" },
         new Materia {NomeMateria="Programação Orientada a Objetos",Id=3,BackGroundColor= "3" },
-         new Materia {NomeMateria="Programação Orientada a Objetos",Id=4,BackGroundColor= "4" },
+         new Materia {NomeMateria="Engenharia de software",Id=4,BackGroundColor= "4" },
           new Materia {NomeMateria="Programação Orientada a Objetos",Id=5,BackGroundColor= "5" },
            new Materia {NomeMateria="Programação Orientada a Objetos",Id=6,BackGroundColor= "6" },
             new Materia {NomeMateria="Programação Orientada a Objetos",Id=7,BackGroundColor= "7" },

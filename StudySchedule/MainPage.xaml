@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasBackButton="True"
              x:Class="StudySchedule.MainPage"             
              Title="">
 
@@ -72,7 +73,7 @@
             </VerticalStackLayout>
         </Grid>
         <!--MainContent-->
-        <Grid  x:Name="MainContent"
+        <Grid x:Name="MainContent"
               ColumnDefinitions="*,auto"
               RowDefinitions="*,auto"
               IgnoreSafeArea="{OnPlatform Android=true, iOS=true}">
@@ -85,8 +86,7 @@
                        TextColor="White"
                        FontSize="20"
                        FontAttributes="Bold,Italic"
-                       HorizontalTextAlignment="Center"
-                       />
+                       HorizontalTextAlignment="Center"/>
             </StackLayout>
 
             <Border
@@ -177,89 +177,127 @@
             <Grid Grid.Row="0"
                   Padding="0,100,0,0">
                 <ScrollView HorizontalScrollBarVisibility="Never"
-                        VerticalScrollBarVisibility="Never">
-                    <CollectionView x:Name="AgendaCollection">
+                            VerticalScrollBarVisibility="Never">
+                    <CollectionView x:Name="AgendaCollection"
+                                   >
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Frame Margin="10,10,10,10" BackgroundColor="Aqua">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition/>
-                                        </Grid.RowDefinitions>
-                                        <Label Text="{Binding Agenda.HoraInicio}"
-                                       TextColor="White"
-                                       FontAttributes="Bold"
-                                       FontSize="12"
-                                       CharacterSpacing="1"
-                                       MaxLines="2"                                       
-                                       VerticalTextAlignment="Center"
-                                       HorizontalTextAlignment="Center">
-                                            <Label.Shadow>
-                                                <Shadow Brush="Black"
-                                                Offset="15,0"
-                                                Radius="20"
-                                                Opacity="1"
-                                                />
-                                            </Label.Shadow>
-                                        </Label>
-                                        <Label  Grid.Row="1"
+
+                               
+
+
+                                    <Frame Margin="10,10,10,10"
+                                       BorderColor="#01403B"
+                                       HasShadow="True"
+                                       HeightRequest="70"
+                                       Padding="5,5,3,0">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Label 
+                                            Text="{Binding Agenda.HoraInicio ,StringFormat='{0:HH:mm}'}"
+                                            TextColor="White"
+                                            FontAttributes="Bold"
+                                            FontSize="15"
+                                            CharacterSpacing="1"                                            
+                                            MaxLines="2"
+                                            HorizontalTextAlignment="End">
+                                                <Label.Shadow>
+                                                    <Shadow Brush="Black"
+                                                        Offset="10,10"
+                                                        Radius="15"
+                                                        Opacity="1"/>
+                                                </Label.Shadow>
+                                            </Label>
+
+                                            <Label 
+                                            Grid.Row="1"
                                             Text="{Binding Materia.NomeMateria}"
-                                       TextColor="White"
-                                       FontAttributes="Bold"
-                                       FontSize="12"
-                                       CharacterSpacing="1"
-                                       MaxLines="2"                                       
-                                       VerticalTextAlignment="Center"
-                                       HorizontalTextAlignment="Center">
-                                            <Label.Shadow>
-                                                <Shadow Brush="Black"
-                                                Offset="15,0"
-                                                Radius="20"
-                                                Opacity="1"
-                                                />
-                                            </Label.Shadow>
-                                        </Label>
-                                    </Grid>                                  
-                                    
-                                    <Frame.Triggers>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="1">
-                                            <Setter Property="BackgroundColor" Value="Aqua"/>
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="2">
-                                            <Setter Property="BackgroundColor" Value="Blue"/>
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="3">
-                                            <Setter Property="BackgroundColor" Value="BlueViolet"/>
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="4">
-                                            <Setter Property="BackgroundColor" Value="Violet"/>
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="5">
-                                            <Setter Property="BackgroundColor" Value="Yellow"/>
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="6">
-                                            <Setter Property="BackgroundColor" Value="Gold"/>
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="7">
-                                            <Setter Property="BackgroundColor" Value="Green"/>
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="8">
-                                            <Setter Property="BackgroundColor" Value="LightGreen"/>
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="9">
-                                            <Setter Property="BackgroundColor" Value="Red"/>
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="10">
-                                            <Setter Property="BackgroundColor" Value="LightCoral"/>
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="11">
-                                            <Setter Property="BackgroundColor" Value="Gray"/>
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="12">
-                                            <Setter Property="BackgroundColor" Value="LightGray"/>
-                                        </DataTrigger>
-                                    </Frame.Triggers>
-                                </Frame>
+                                            TextColor="White"
+                                            FontAttributes="Bold"
+                                            FontSize="12"
+                                            WidthRequest="150"
+                                            CharacterSpacing="1"
+                                            MaxLines="2"  
+                                            HorizontalTextAlignment="Center">
+                                                <Label.Shadow>
+                                                    <Shadow Brush="Black"
+                                                        Offset="15,0"
+                                                        Radius="15"
+                                                        Opacity="1"/>
+                                                </Label.Shadow>
+                                            </Label>
+                                            <Label                                            
+                                            Text="Alarme"
+                                            TextColor="White"
+                                            FontAttributes="Bold"
+                                            FontSize="13"
+                                            CharacterSpacing="1"
+                                            MaxLines="2"  
+                                            HorizontalTextAlignment="Start">
+
+                                            </Label>
+                                            <StackLayout Orientation="Horizontal" 
+                                                         HorizontalOptions="StartAndExpand"
+                                                         VerticalOptions="EndAndExpand"
+                                                         Margin="0,10,0,0">
+                                                <RadioButton Value="Ativado"
+                                                             Content="Ativado"
+                                                             IsChecked="True"
+                                                             TextColor="Green">
+
+
+                                                </RadioButton>
+                                                <RadioButton Value="Desativado"
+                                                             Content="Desativado"
+                                                             IsChecked="False"
+                                                             TextColor="Red">
+
+                                                </RadioButton>
+                                            </StackLayout>                                                
+                                           
+                                        </Grid>
+                                        <Frame.Triggers>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="1">
+                                                <Setter Property="BackgroundColor" Value="Aqua"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="2">
+                                                <Setter Property="BackgroundColor" Value="Blue"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="3">
+                                                <Setter Property="BackgroundColor" Value="BlueViolet"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="4">
+                                                <Setter Property="BackgroundColor" Value="Violet"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="5">
+                                                <Setter Property="BackgroundColor" Value="Yellow"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="6">
+                                                <Setter Property="BackgroundColor" Value="Gold"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="7">
+                                                <Setter Property="BackgroundColor" Value="Green"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="8">
+                                                <Setter Property="BackgroundColor" Value="LightGreen"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="9">
+                                                <Setter Property="BackgroundColor" Value="Red"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="10">
+                                                <Setter Property="BackgroundColor" Value="LightCoral"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="11">
+                                                <Setter Property="BackgroundColor" Value="Gray"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="12">
+                                                <Setter Property="BackgroundColor" Value="LightGray"/>
+                                            </DataTrigger>
+                                        </Frame.Triggers>
+                                    </Frame>                              
+
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
