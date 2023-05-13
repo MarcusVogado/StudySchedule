@@ -6,4 +6,9 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 	}
+
+    private void AddItem_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

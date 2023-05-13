@@ -5,7 +5,7 @@ namespace StudySchedule;
 
 public partial class MainPage : ContentPage
 {
-    private const uint AnimationDuration = 800u;
+    private const uint AnimationDuration = 1000u;
     ICollection<Agenda> agendas = new List<Agenda> {
     new Agenda{NotificationStatus=true,DiaSemana="Segunda",HoraInicio=DateTime.Parse("08:00:00"),HoraFim = DateTime.Parse("08:40:00"),MateriaId=1,},
     new Agenda{NotificationStatus=true,DiaSemana="Segunda",HoraInicio=DateTime.Parse("08:41:00"),HoraFim = DateTime.Parse("09:40:00"),MateriaId=2,},
@@ -39,8 +39,8 @@ public partial class MainPage : ContentPage
     async private void MenuEvent_Clicked(object sender, TappedEventArgs e)
     {
         _ = MainContent.TranslateTo(-this.Width * 0.5, this.Height * 0.1, AnimationDuration, Easing.CubicIn);
-        await MainContent.ScaleTo(0.9, AnimationDuration);
-        _ = MainContent.FadeTo(0.9, AnimationDuration);
+        await MainContent.ScaleTo(0.7, AnimationDuration);
+        _ = MainContent.FadeTo(0.7, AnimationDuration);
         MenuContainer.IsVisible = true;
     }
     async private void GridArea_Tapped(object sender, TappedEventArgs e)

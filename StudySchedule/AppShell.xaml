@@ -30,5 +30,5 @@
                     ContentTemplate="{DataTemplate pages:MateriaPage}"
                     Route="MateriaPage" />
         </Tab>    
-    </TabBar>
+    </TabBar>   
 </Shell>

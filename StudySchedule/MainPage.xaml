@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             NavigationPage.HasBackButton="True"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"                        
              x:Class="StudySchedule.MainPage"             
              Title="">
 
@@ -9,6 +8,7 @@
           RowDefinitions="*,auto">
         <!-- MenuGrid-->
         <Grid x:Name="MenuContainer"
+             FlyoutItem.IsVisible="True"
             IsVisible="False"
             IgnoreSafeArea="{OnPlatform Android=true, iOS=True}">
             <Grid.Background>
@@ -21,13 +21,12 @@
                 <TapGestureRecognizer Tapped="GridArea_Tapped" />
             </Grid.GestureRecognizers>
             <VerticalStackLayout Margin="0,50,0,0"
+                                 
                 HorizontalOptions="End">
                 <Grid RowSpacing="15">
                     <Grid.RowDefinitions>
                         <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition/>
+                        <RowDefinition />                       
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -39,24 +38,8 @@
                             FontSize="18"
                             TextColor="White"                    
                             HorizontalOptions="End"/>
-
-                    <Label    
-                            Grid.Row="2"
-                            Text="MinhasMatérias"
-                            Style="{StaticResource labelForMenu}"
-                            HorizontalOptions="End">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="GoToMateriaPage_Clicked"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <Image Grid.Column="1"
-                           Grid.Row="2"
-                           Source="library.png"
-                           WidthRequest="25"
-                           HeightRequest="25"/>
-
                     <Label   
-                            Grid.Row="3"              
+                            Grid.Row="2"              
                             Text="Info"
                             Style="{StaticResource labelForMenu}"
                             HorizontalOptions="End" >
@@ -65,7 +48,7 @@
                         </Label.GestureRecognizers>
                     </Label>
                     <Image Grid.Column="1"
-                           Grid.Row="3"
+                           Grid.Row="2"
                            Source="info.png"
                            WidthRequest="25"
                            HeightRequest="25"/>
@@ -86,7 +69,8 @@
                        TextColor="White"
                        FontSize="20"
                        FontAttributes="Bold,Italic"
-                       HorizontalTextAlignment="Center"/>
+                       HorizontalTextAlignment="Center"
+                       Margin="0,5,0,0"/>
             </StackLayout>
 
             <Border
