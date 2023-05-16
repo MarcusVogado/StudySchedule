@@ -113,6 +113,16 @@ public partial class MainPage : ContentPage
         await Navigation.PushAsync(new Info());
     }
     #endregion
+
+    private async void StartStudy_Clicked(object sender, EventArgs e)
+    {
+       bool acepty = await DisplayAlert("START ESTUDOS", "DESEJA INICIAR OS ESTUDOS?", "SIM", "NÃO");
+        if (acepty)
+        {
+           await Navigation.PushAsync(new Pages.StartStudyPage());
+        }
+        return;
+    }
 }
 
 

@@ -26,7 +26,7 @@
                 <Grid RowSpacing="15">
                     <Grid.RowDefinitions>
                         <RowDefinition />
-                        <RowDefinition />                       
+                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -159,14 +159,15 @@
             </HorizontalStackLayout>
 
             <Grid Grid.Row="0"
-                  Padding="0,100,0,0">
+                  Padding="0,100,0,0"
+                  >
                 <ScrollView HorizontalScrollBarVisibility="Never"
                             VerticalScrollBarVisibility="Never">
                     <CollectionView x:Name="AgendaCollection"
                                    >
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                    <Frame Margin="10,10,10,10"
+                                <Frame Margin="10,10,10,10"
                                           
                                        HasShadow="True"
                                        HeightRequest="70"
@@ -179,12 +180,12 @@
                                                           Offset="0.1"/>
                                         </LinearGradientBrush>
                                     </Frame.Background>
-                                   
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition/>
-                                            </Grid.RowDefinitions>
-                                            <Label                                            
+
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Label                                            
                                             TextColor="White"                                           
                                             CharacterSpacing="1"                                            
                                             MaxLines="2"
@@ -200,7 +201,7 @@
                                             </Label.FormattedText>
                                         </Label>
 
-                                            <Label 
+                                        <Label 
                                             Grid.Row="1"                                                
                                             Text="{Binding Materia.NomeMateria}"
                                             TextColor="White"
@@ -209,20 +210,44 @@
                                             WidthRequest="150"
                                             CharacterSpacing="1"
                                             MaxLines="2"  
-                                            HorizontalTextAlignment="Center">                                          
-                                               
-                                            </Label>  
-                                        </Grid>                                       
-                                    </Frame>  
+                                            HorizontalTextAlignment="Center">
+                                        </Label>
+                                    </Grid>
+                                </Frame>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </ScrollView>
             </Grid>
         </Grid>
-        <StackLayout>
+        <StackLayout 
+                     VerticalOptions="EndAndExpand"
+                     WidthRequest="80"
+                     HeightRequest="120">
             <ImageButton
-                Source="start.png"/>
+                        Source="start.png"
+                        WidthRequest="120"
+                        Clicked="StartStudy_Clicked"
+               
+                        HorizontalOptions="Center"
+                        VerticalOptions="EndAndExpand">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                                        Value="1" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                                         Value="0.8" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ImageButton>
         </StackLayout>
     </Grid>
 </ContentPage>
