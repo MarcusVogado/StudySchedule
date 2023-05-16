@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"                        
-             x:Class="StudySchedule.MainPage" 
-             BackgroundColor="LightGray"
-             Title="">
+             x:Class="StudySchedule.MainPage" >
+
 
     <Grid IgnoreSafeArea="{OnPlatform Android=true, iOS=true}"
           RowDefinitions="*,auto">
@@ -167,27 +166,36 @@
                                    >
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                    <Frame Margin="10,10,10,10"   
-                                           BackgroundColor="Black"
+                                    <Frame Margin="10,10,10,10"
+                                          
                                        HasShadow="True"
                                        HeightRequest="70"
                                        Padding="5,5,3,0">
+                                    <Frame.Background>
+                                        <LinearGradientBrush EndPoint="1,0">
+                                            <GradientStop Color="{StaticResource Primary}"
+                                                          Offset="0.1"/>
+                                            <GradientStop Color="Black"
+                                                          Offset="0.1"/>
+                                        </LinearGradientBrush>
+                                    </Frame.Background>
+                                   
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
                                             <Label                                            
-                                            TextColor="White"
-                                            FontAttributes="Bold"
-                                            FontSize="15"
+                                            TextColor="White"                                           
                                             CharacterSpacing="1"                                            
                                             MaxLines="2"
                                             VerticalTextAlignment="Center"
                                             HorizontalTextAlignment="Start">
                                             <Label.FormattedText>
                                                 <FormattedString>
-                                                    <Span Text="{Binding Agenda.Duracao }"/>
-                                                    <Span Text=" - Min"/>
+                                                    <Span Text="{Binding Agenda.Duracao }"
+                                                          FontSize="18"/>
+                                                    <Span Text=" - Min"
+                                                          FontSize="18"/>
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
@@ -201,8 +209,7 @@
                                             WidthRequest="150"
                                             CharacterSpacing="1"
                                             MaxLines="2"  
-                                            HorizontalTextAlignment="Center">
-                                           
+                                            HorizontalTextAlignment="Center">                                          
                                                
                                             </Label>  
                                         </Grid>                                       
@@ -213,5 +220,9 @@
                 </ScrollView>
             </Grid>
         </Grid>
+        <StackLayout>
+            <ImageButton
+                Source="start.png"/>
+        </StackLayout>
     </Grid>
 </ContentPage>
