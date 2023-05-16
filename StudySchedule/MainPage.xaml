@@ -99,6 +99,7 @@
                     </Image.Clip>
                 </Image>
             </Border>
+            
             <HorizontalStackLayout Grid.Row="0" 
                                    Padding="0,40,0,0"
                                    Margin="0">
@@ -246,10 +247,10 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-
                     </ImageButton>
                 </StackLayout>
             </Grid>             
-        </Grid>       
+        </Grid> 
+        
     </Grid>
 </ContentPage>
