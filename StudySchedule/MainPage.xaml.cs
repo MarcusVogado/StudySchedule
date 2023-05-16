@@ -7,21 +7,29 @@ public partial class MainPage : ContentPage
 {
     private const uint AnimationDuration = 1000u;
     ICollection<Agenda> agendas = new List<Agenda> {
-    new Agenda{DiaSemana="Segunda",Duracao=60,MateriaId=1,},
-    new Agenda{DiaSemana="Segunda",Duracao=120,MateriaId=2,},
-    new Agenda{DiaSemana="Segunda",Duracao=45,MateriaId=3,},
-    new Agenda{DiaSemana="Segunda",Duracao=80,MateriaId=4,},
+    new Agenda{DiaSemana="Segunda",Duracao=60,MateriaId=1},
+    new Agenda{DiaSemana="Segunda",Duracao=120,MateriaId=2},
+    new Agenda{DiaSemana="Segunda",Duracao=45,MateriaId=3},
+    new Agenda{DiaSemana="Segunda",Duracao=80,MateriaId=4},
+    new Agenda{DiaSemana="Segunda",Duracao=80,MateriaId=5},
+    new Agenda{DiaSemana="Segunda",Duracao=80,MateriaId=6},
+    new Agenda{DiaSemana="Segunda",Duracao=80,MateriaId=7},
+    new Agenda{DiaSemana="Segunda",Duracao=80,MateriaId=8},
+    new Agenda{DiaSemana="Segunda",Duracao=80,MateriaId=9},
+    new Agenda{DiaSemana="Segunda",Duracao=80,MateriaId=10},
+    new Agenda{DiaSemana="Segunda",Duracao=80,MateriaId=11},
+
     };
     List<Materia> listMateria = new List<Materia> {
         new Materia {NomeMateria="Português",Id=1 },
         new Materia {NomeMateria="Matemática",Id=2,},
         new Materia {NomeMateria="Programação Orientada a Objetos",Id=3},
          new Materia {NomeMateria="Engenharia de software",Id=4 },
-          new Materia {NomeMateria="Programação Orientada a Objetos",Id=5 },
-           new Materia {NomeMateria="Programação Orientada a Objetos",Id=6},
-            new Materia {NomeMateria="Programação Orientada a Objetos",Id=7},
-             new Materia {NomeMateria="Programação Orientada a Objetos",Id=8},
-              new Materia {NomeMateria="Programação Orientada a Objetos",Id=9},
+          new Materia {NomeMateria="Sistemas Operacionais",Id=5 },
+           new Materia {NomeMateria="Lógica",Id=6},
+            new Materia {NomeMateria="Sistemas de Comunicação",Id=7},
+             new Materia {NomeMateria="Projeto WEB 1",Id=8},
+              new Materia {NomeMateria="Sistemas para Internet",Id=9},
                new Materia {NomeMateria="Programação Orientada a Objetos",Id=10},
                 new Materia {NomeMateria="Programação Orientada a Objetos",Id=11},
                  new Materia {NomeMateria="Programação Orientada a Objetos",Id=12},
@@ -122,6 +130,14 @@ public partial class MainPage : ContentPage
            await Navigation.PushAsync(new Pages.StartStudyPage());
         }
         return;
+    }
+
+    private async void GoToManagementPage_Clicked(object sender, TappedEventArgs e)
+    {
+        var materia = (TappedEventArgs)e;
+        var pagina = new Pages.MateriaManagement();
+        pagina.BindingContext = (Materia)materia.Parameter;
+        await Navigation.PushAsync(pagina);            
     }
 }
 

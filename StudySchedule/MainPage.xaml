@@ -159,28 +159,27 @@
             </HorizontalStackLayout>
 
             <Grid Grid.Row="0"
-                  Padding="0,100,0,0"
-                  >
+                  Padding="0,100,0,0">
                 <ScrollView HorizontalScrollBarVisibility="Never"
                             VerticalScrollBarVisibility="Never">
-                    <CollectionView x:Name="AgendaCollection"
-                                   >
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Frame Margin="10,10,10,10"
-                                          
+                    <CollectionView x:Name="AgendaCollection"                                   >
+                        <CollectionView.ItemTemplate>                        
+                        <DataTemplate>                                
+                                <Frame Margin="10,10,10,10"                                          
                                        HasShadow="True"
                                        HeightRequest="70"
                                        Padding="5,5,3,0">
                                     <Frame.Background>
                                         <LinearGradientBrush EndPoint="1,0">
                                             <GradientStop Color="{StaticResource Primary}"
-                                                          Offset="0.1"/>
+                                                          Offset="0.8"/>
                                             <GradientStop Color="Black"
                                                           Offset="0.1"/>
                                         </LinearGradientBrush>
                                     </Frame.Background>
-
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="GoToManagementPage_Clicked" CommandParameter="."/>
+                                    </Frame.GestureRecognizers>
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
@@ -218,36 +217,39 @@
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </ScrollView>
-            </Grid>
-        </Grid>
-        <StackLayout 
+                <StackLayout 
                      VerticalOptions="EndAndExpand"
-                     WidthRequest="80"
+                     WidthRequest="810"
                      HeightRequest="120">
-            <ImageButton
-                        Source="start.png"
-                        WidthRequest="120"
-                        Clicked="StartStudy_Clicked"
-               
-                        HorizontalOptions="Center"
-                        VerticalOptions="EndAndExpand">
-                <VisualStateManager.VisualStateGroups>
-                    <VisualStateGroup x:Name="CommonStates">
-                        <VisualState x:Name="Normal">
-                            <VisualState.Setters>
-                                <Setter Property="Scale"
-                                        Value="1" />
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState x:Name="Pressed">
-                            <VisualState.Setters>
-                                <Setter Property="Scale"
-                                         Value="0.8" />
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateManager.VisualStateGroups>
-            </ImageButton>
-        </StackLayout>
+                    <ImageButton  
+                        IsEnabled="True"                        
+                        Source="start.png"                        
+                        Clicked="StartStudy_Clicked"               
+                        HorizontalOptions="Center"                        
+                        VerticalOptions="EndAndExpand"                       
+                        WidthRequest="150"
+                        HeightRequest="150">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="Common">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale"
+                                                Value="1" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale"
+                                                Value="0.8" />
+                                        <Setter Property="Opacity" Value="0.5"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                    </ImageButton>
+                </StackLayout>
+            </Grid>             
+        </Grid>       
     </Grid>
 </ContentPage>
