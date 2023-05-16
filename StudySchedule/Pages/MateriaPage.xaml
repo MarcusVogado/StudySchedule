@@ -31,45 +31,7 @@
                                                 Opacity="1"
                                                 />
                                     </Label.Shadow>                                    
-                                </Label>
-                                <Frame.Triggers>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="1">
-                                        <Setter Property="BackgroundColor" Value="Aqua"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="2">
-                                        <Setter Property="BackgroundColor" Value="Blue"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="3">
-                                        <Setter Property="BackgroundColor" Value="BlueViolet"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="4">
-                                        <Setter Property="BackgroundColor" Value="Violet"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="5">
-                                        <Setter Property="BackgroundColor" Value="Yellow"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="6">
-                                        <Setter Property="BackgroundColor" Value="Gold"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="7">
-                                        <Setter Property="BackgroundColor" Value="Green"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="8">
-                                        <Setter Property="BackgroundColor" Value="LightGreen"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="9">
-                                        <Setter Property="BackgroundColor" Value="Red"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="10">
-                                        <Setter Property="BackgroundColor" Value="LightCoral"/>
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="11">
-                                        <Setter Property="BackgroundColor" Value="Gray"/>                                        
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Frame" Binding="{Binding BackGroundColor}" Value="12">
-                                        <Setter Property="BackgroundColor" Value="LightGray"/>
-                                    </DataTrigger>
-                                </Frame.Triggers>
+                                </Label>                               
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

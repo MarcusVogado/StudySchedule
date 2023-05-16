@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"                        
-             x:Class="StudySchedule.MainPage"             
+             x:Class="StudySchedule.MainPage" 
+             BackgroundColor="#ccc"
              Title="">
 
     <Grid IgnoreSafeArea="{OnPlatform Android=true, iOS=true}"
@@ -166,12 +167,8 @@
                                    >
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-
-                               
-
-
-                                    <Frame Margin="10,10,10,10"
-                                       BorderColor="#01403B"
+                                    <Frame Margin="10,10,10,10"   
+                                           BackgroundColor="Black"
                                        HasShadow="True"
                                        HeightRequest="70"
                                        Padding="5,5,3,0">
@@ -179,109 +176,37 @@
                                             <Grid.RowDefinitions>
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
-                                            <Label 
-                                            Text="{Binding Agenda.HoraInicio ,StringFormat='{0:HH:mm}'}"
+                                            <Label                                            
                                             TextColor="White"
                                             FontAttributes="Bold"
                                             FontSize="15"
                                             CharacterSpacing="1"                                            
                                             MaxLines="2"
-                                            HorizontalTextAlignment="End">
-                                                <Label.Shadow>
-                                                    <Shadow Brush="Black"
-                                                        Offset="10,10"
-                                                        Radius="15"
-                                                        Opacity="1"/>
-                                                </Label.Shadow>
-                                            </Label>
+                                            VerticalTextAlignment="Center"
+                                            HorizontalTextAlignment="Start">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Agenda.Duracao }"/>
+                                                    <Span Text=" - Min"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
 
                                             <Label 
-                                            Grid.Row="1"
+                                            Grid.Row="1"                                                
                                             Text="{Binding Materia.NomeMateria}"
                                             TextColor="White"
                                             FontAttributes="Bold"
-                                            FontSize="12"
+                                            FontSize="18"
                                             WidthRequest="150"
                                             CharacterSpacing="1"
                                             MaxLines="2"  
                                             HorizontalTextAlignment="Center">
-                                                <Label.Shadow>
-                                                    <Shadow Brush="Black"
-                                                        Offset="15,0"
-                                                        Radius="15"
-                                                        Opacity="1"/>
-                                                </Label.Shadow>
-                                            </Label>
-                                            <Label                                            
-                                            Text="Alarme"
-                                            TextColor="White"
-                                            FontAttributes="Bold"
-                                            FontSize="13"
-                                            CharacterSpacing="1"
-                                            MaxLines="2"  
-                                            HorizontalTextAlignment="Start">
-
-                                            </Label>
-                                            <StackLayout Orientation="Horizontal" 
-                                                         HorizontalOptions="StartAndExpand"
-                                                         VerticalOptions="EndAndExpand"
-                                                         Margin="0,10,0,0">
-                                                <RadioButton Value="Ativado"
-                                                             Content="Ativado"
-                                                             IsChecked="True"
-                                                             TextColor="Green">
-
-
-                                                </RadioButton>
-                                                <RadioButton Value="Desativado"
-                                                             Content="Desativado"
-                                                             IsChecked="False"
-                                                             TextColor="Red">
-
-                                                </RadioButton>
-                                            </StackLayout>                                                
                                            
-                                        </Grid>
-                                        <Frame.Triggers>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="1">
-                                                <Setter Property="BackgroundColor" Value="Aqua"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="2">
-                                                <Setter Property="BackgroundColor" Value="Blue"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="3">
-                                                <Setter Property="BackgroundColor" Value="BlueViolet"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="4">
-                                                <Setter Property="BackgroundColor" Value="Violet"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="5">
-                                                <Setter Property="BackgroundColor" Value="Yellow"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="6">
-                                                <Setter Property="BackgroundColor" Value="Gold"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="7">
-                                                <Setter Property="BackgroundColor" Value="Green"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="8">
-                                                <Setter Property="BackgroundColor" Value="LightGreen"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="9">
-                                                <Setter Property="BackgroundColor" Value="Red"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="10">
-                                                <Setter Property="BackgroundColor" Value="LightCoral"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="11">
-                                                <Setter Property="BackgroundColor" Value="Gray"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Frame" Binding="{Binding Materia.BackGroundColor}" Value="12">
-                                                <Setter Property="BackgroundColor" Value="LightGray"/>
-                                            </DataTrigger>
-                                        </Frame.Triggers>
-                                    </Frame>                              
-
+                                               
+                                            </Label>  
+                                        </Grid>                                       
+                                    </Frame>  
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>

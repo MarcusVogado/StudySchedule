@@ -15,13 +15,8 @@ namespace MigrationLibrary.Models
         [Required]
         public string DiaSemana { get; set; } = null!;
         [Required]
-        public DateTime HoraInicio { get; set; }
-        [Required]
-        public DateTime HoraFim { get; set; }
-        [Required]
-        public bool NotificationStatus { get; set; }
-        [Required]
-        public string Status { get; set; } = null!;
+        public int Duracao { get; set; }
+    
         public int MateriaId { get; set; }
         [ForeignKey("MateriaId")]
         public Materia Materia { get; set; } = null!;
