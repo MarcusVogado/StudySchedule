@@ -16,3 +16,6 @@ Aplicação de conhecimentos retirados de livros e cursos online.</br>
 <h3>Linguagens:</h3>
 <b>C#</b></br>
 <b>XAML</b></br>
+__________________________________________________________________________________</br>
+<h3>IMAGEM DO APP</h3>
+<img style="width:280px; height:580px;" src="https://github.com/MarcusVogado/StudySchedule/assets/107502578/f5ad0fd3-c25b-4831-a767-85b29f45f606"/>
