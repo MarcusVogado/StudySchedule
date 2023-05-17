@@ -99,7 +99,7 @@
                     </Image.Clip>
                 </Image>
             </Border>
-            
+
             <HorizontalStackLayout Grid.Row="0" 
                                    Padding="0,40,0,0"
                                    Margin="0">
@@ -164,8 +164,8 @@
                 <ScrollView HorizontalScrollBarVisibility="Never"
                             VerticalScrollBarVisibility="Never">
                     <CollectionView x:Name="AgendaCollection"                                   >
-                        <CollectionView.ItemTemplate>                        
-                        <DataTemplate>                                
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
                                 <Frame Margin="10,10,10,10"                                          
                                        HasShadow="True"
                                        HeightRequest="70"
@@ -249,8 +249,22 @@
                         </VisualStateManager.VisualStateGroups>
                     </ImageButton>
                 </StackLayout>
-            </Grid>             
-        </Grid> 
-        
+                <ProgressBar x:Name="ProgressLoading" 
+                             Progress="0.2"
+                             IsVisible="false"
+                             ProgressColor="Red"
+                             HeightRequest="20">                
+                </ProgressBar>
+                <Label IsVisible="false"
+                       x:Name="textLoading"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       FontSize="15"                       
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Margin="0,23,0,0"
+                       />
+            </Grid>            
+        </Grid>
     </Grid>
 </ContentPage>

@@ -5,6 +5,7 @@ namespace StudySchedule;
 
 public partial class MainPage : ContentPage
 {
+    
     private const uint AnimationDuration = 1000u;
     ICollection<Agenda> agendas = new List<Agenda> {
     new Agenda{DiaSemana="Segunda",Duracao=60,MateriaId=1},
@@ -65,8 +66,13 @@ public partial class MainPage : ContentPage
     #endregion
 
     #region Days List For Clicked
-    private void Monday_Clicked(object sender, TappedEventArgs e)
+    private async void Monday_Clicked(object sender, TappedEventArgs e)
     {
+        textLoading.IsVisible = true;
+        textLoading.Text = "Carregando suas Matérias do dia ...";
+        await Task.Delay(50);
+        AgendaCollection.IsVisible = false;
+        ProgressLoading.IsVisible = true;
         var agendaCollection = from agenda in agendas
                                join mat in listMateria
                                on agenda.MateriaId equals mat.Id
@@ -74,9 +80,18 @@ public partial class MainPage : ContentPage
                                            Agenda = agenda,
                                            Materia = mat,
                                };
-                                        
+        await Task.Delay(50);
+        textLoading.Text = "Quase lá...";
+        await ProgressLoading.ProgressTo(1.0, 1000, Easing.Linear);        
+        ProgressLoading.ProgressColor = Colors.Green;
+        textLoading.Text = "Tudo pronto, Bons Estudos!";
+        await Task.Delay(100);
         AgendaCollection.ItemsSource= agendaCollection;
-     
+        textLoading.IsVisible= false;
+        ProgressLoading.IsVisible= false;
+        AgendaCollection.IsVisible= true;
+        ProgressLoading.ProgressColor = Colors.Red;
+        ProgressLoading.Progress = 0;
     }     
 
     private void Tuesday_Clicked(object sender, TappedEventArgs e)
