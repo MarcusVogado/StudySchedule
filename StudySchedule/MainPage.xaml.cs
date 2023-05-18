@@ -85,7 +85,7 @@ public partial class MainPage : ContentPage
         await ProgressLoading.ProgressTo(1.0, 1000, Easing.Linear);        
         ProgressLoading.ProgressColor = Colors.Green;
         textLoading.Text = "Tudo pronto, Bons Estudos!";
-        await Task.Delay(100);
+        await Task.Delay(50);
         AgendaCollection.ItemsSource= agendaCollection;
         textLoading.IsVisible= false;
         ProgressLoading.IsVisible= false;
@@ -149,9 +149,9 @@ public partial class MainPage : ContentPage
 
     private async void GoToManagementPage_Clicked(object sender, TappedEventArgs e)
     {
-        var materia = (TappedEventArgs)e;
+        var tapped = (TappedEventArgs)e;
         var pagina = new Pages.MateriaManagement();
-        pagina.BindingContext = (Materia)materia.Parameter;
+        pagina.BindingContext =(Materia)tapped.Parameter;
         await Navigation.PushAsync(pagina);            
     }
 }

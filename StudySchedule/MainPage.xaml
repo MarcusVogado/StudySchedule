@@ -179,7 +179,7 @@
                                         </LinearGradientBrush>
                                     </Frame.Background>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="GoToManagementPage_Clicked" CommandParameter="."/>
+                                        <TapGestureRecognizer Tapped="GoToManagementPage_Clicked" CommandParameter="{Binding Materia}"/>
                                     </Frame.GestureRecognizers>
                                     <Grid>
                                         <Grid.RowDefinitions>
