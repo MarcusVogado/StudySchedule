@@ -54,6 +54,9 @@
 	  <None Remove="Resources\Images\info.png" />
 	  <None Remove="Resources\Images\library.png" />
 	  <None Remove="Resources\Images\menu.png" />
+	  <None Remove="Resources\Images\pause.png" />
+	  <None Remove="Resources\Images\play.png" />
+	  <None Remove="Resources\Images\reset.png" />
 	  <None Remove="Resources\Images\start.png" />
 	</ItemGroup>
 

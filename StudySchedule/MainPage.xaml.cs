@@ -137,12 +137,17 @@ public partial class MainPage : ContentPage
     }
     #endregion
 
+   
     private async void StartStudy_Clicked(object sender, EventArgs e)
     {
        bool acepty = await DisplayAlert("START ESTUDOS", "DESEJA INICIAR OS ESTUDOS?", "SIM", "NÃO");
         if (acepty)
         {
-           await Navigation.PushAsync(new Pages.StartStudyPage());
+            var materias = AgendaCollection.ItemsSource;
+            //var agenda= materias.OfType<Agenda>;
+            var pagina = new StartStudyPage();
+            pagina.BindingContext = materias;
+            await Navigation.PushAsync(pagina);
         }
         return;
     }

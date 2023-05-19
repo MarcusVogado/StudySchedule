@@ -226,7 +226,9 @@
                         IsEnabled="True"                        
                         Source="start.png"                        
                         Clicked="StartStudy_Clicked"               
-                        HorizontalOptions="Center"                        
+                        HorizontalOptions="Center"
+                        BindingContext="{x:Reference Name=AgendaCollection}"
+                        CommandParameter="{Binding Agenda}"
                         VerticalOptions="EndAndExpand"                       
                         WidthRequest="150"
                         HeightRequest="150">
@@ -242,7 +244,7 @@
                                     <VisualState.Setters>
                                         <Setter Property="Scale"
                                                 Value="0.8" />
-                                        <Setter Property="Opacity" Value="0.5"/>
+                                        <Setter Property="Opacity" Value="0.8"/>
                                     </VisualState.Setters>
                                 </VisualState>
                             </VisualStateGroup>
@@ -262,8 +264,7 @@
                        FontSize="15"                       
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
-                       Margin="0,23,0,0"
-                       />
+                       Margin="0,23,0,0"/>
             </Grid>            
         </Grid>
     </Grid>
