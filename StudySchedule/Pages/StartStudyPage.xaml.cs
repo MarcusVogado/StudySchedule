@@ -1,3 +1,5 @@
+using Android.App.Job;
+using Java.Security;
 using MigrationLibrary.Models;
 using System.Reflection;
 
@@ -9,6 +11,7 @@ public partial class StartStudyPage : ContentPage
     TimeSpan timer;
     int horas;
     int minutos;
+    int segundos = 0;
     [Obsolete]
     public StartStudyPage()
     {
@@ -22,18 +25,29 @@ public partial class StartStudyPage : ContentPage
             });
         });
 
-    }
-
+    }    
     private void playStop_Clicked(object sender, EventArgs e)
-    {
-        Device.StartTimer(new TimeSpan(horas, minutos, 60), () =>
+    { 
+
+        Device.StartTimer(timer, () =>
         {
-            // do something every 60 seconds
+            
             Device.BeginInvokeOnMainThread(() =>
             {
-                // interact with UI elements
+              timeItemSelected.Text=timer.ToString();
             });
-            return true; // runs again, or false to stop
+            bool pausePlay=false;
+            if(pausePlay==true) {
+                pausePlay = false;
+                //playandpauseBotton.Source = "play.png";
+
+            }
+            else
+            {
+                pausePlay=true;
+               //playandpauseBotton.Source = "pause.png";
+            }
+            return pausePlay; 
         });
 
     }
@@ -64,7 +78,7 @@ public partial class StartStudyPage : ContentPage
             }
             horas = agenda.Duracao / 60;
             minutos = agenda.Duracao % 60;
-            timer = new TimeSpan(horas, minutos, 59);
+            timer = new TimeSpan(horas, minutos, segundos);
             timeItemSelected.Text = timer.ToString();
         }
         return;

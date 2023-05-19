@@ -70,24 +70,28 @@
         <HorizontalStackLayout            
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="EndAndExpand"
-                TranslationY="-150">
+                >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <ImageButton Source="play.png"
+                <Button  ZIndex="2"
+                        x:Name="playandpauseBotton"
+                        
                              WidthRequest="60"
+                             BackgroundColor="Blue"
                              HeightRequest="50"                             
                              CornerRadius="20"
                              Clicked="playStop_Clicked"
+                              
 
                             />
-                <ImageButton Grid.ColumnSpan="1"
+                <!-- <ImageButton Grid.ColumnSpan="1"
                              Source="reset.png"
                              WidthRequest="60"
                              HeightRequest="60"                                 
                              CornerRadius="20"                            
-                             Clicked="resetTimer_Clicked"/>
+                             Clicked="resetTimer_Clicked"/>-->
             </Grid>
         </HorizontalStackLayout>
     </Grid>
