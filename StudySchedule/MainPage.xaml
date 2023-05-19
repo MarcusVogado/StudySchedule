@@ -228,7 +228,7 @@
                         Clicked="StartStudy_Clicked"               
                         HorizontalOptions="Center"
                         BindingContext="{x:Reference Name=AgendaCollection}"
-                        CommandParameter="{Binding Agenda}"
+                        CommandParameter="{Binding .}"
                         VerticalOptions="EndAndExpand"                       
                         WidthRequest="150"
                         HeightRequest="150">
