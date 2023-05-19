@@ -75,16 +75,12 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button  ZIndex="2"
-                        x:Name="playandpauseBotton"
-                        
-                             WidthRequest="60"
-                             BackgroundColor="Blue"
+                <Button Text="clicked"
+                             x:Name="playandpauseBotton"                        
+                             WidthRequest="60"                            
                              HeightRequest="50"                             
                              CornerRadius="20"
-                             Clicked="playStop_Clicked"
-                              
-
+                             Clicked="playStop_Clicked" 
                             />
                 <!-- <ImageButton Grid.ColumnSpan="1"
                              Source="reset.png"
