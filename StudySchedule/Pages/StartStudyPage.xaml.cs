@@ -2,18 +2,17 @@ using MigrationLibrary.Models;
 using System.ComponentModel;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Threading;
 using System.Timers;
 
 namespace StudySchedule.Pages;
 
 public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
 {
-   
+    TimeSpan timer;
     int horas;
     int minutos;
     int segundos = 0;
-    System.Timers.Timer timers;
+   
 
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -26,7 +25,7 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
         }
     }
 
-    public System.Timers.Timer Time { get { return timers; } set { timers = value; OnPropertyChanged("Time"); } }
+    public TimeSpan Time { get { return timer; } set { timer = value; OnPropertyChanged("Time"); } }
     [Obsolete]
     public StartStudyPage()
     {
@@ -37,32 +36,33 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
             Device.BeginInvokeOnMainThread(() =>
             {
                 CarregarMaterias();
-                
             });
         });
 
     }
     [Obsolete]
     private void playStop_Clicked(object sender, EventArgs e)
-    {
-            timers.Interval = 1000;
-            timers.Elapsed += OnTimedEvent;
-        
-        var buttonValidation = playandpauseBotton.Source.ToString();
+    { bool startStop;
+            var buttonValidation = playandpauseBotton.Source.ToString();
             if (buttonValidation == "File: play.png")
             {
-              timers.Start();
                 playandpauseBotton.Source = "pause.png";
-              
+                startStop = true;
             }
             else
             {
                 playandpauseBotton.Source = "play.png";
-              
+                startStop = false;
            
             }
         
-           
+            Device.StartTimer(new TimeSpan(0,0,1), () =>
+            {             
+                timer = timer-new TimeSpan(0,0,0,0,1000);
+                timeItemSelected.Text = timer.ToString();
+                return startStop;
+            });
+       
     }
     public async Task<bool> boleanTask()
     {
@@ -95,8 +95,9 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
                 agenda = (Agenda)agendaValue;
             }
             horas = agenda.Duracao / 60;
-            minutos = agenda.Duracao % 60;           
-            timeItemSelected.Text = "horas"+":"+"minutos"+":"+"00";
+            minutos = agenda.Duracao % 60;
+            timer = new TimeSpan(horas, minutos, segundos);
+            timeItemSelected.Text = timer.ToString();
         }
         return;
 
@@ -113,17 +114,6 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
         }
         return propertyValues;
     }
-    private void OnTimedEvent(object sender, System.Timers.ElapsedEventArgs e)
-    {
-        horas--;
 
-        //Update visual representation here
-        //Remember to do it on UI thread
-
-        if (horas == 0)
-        {
-            timers.Stop();
-        }
-    }
 
 }
