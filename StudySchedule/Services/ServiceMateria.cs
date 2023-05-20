@@ -20,7 +20,7 @@ namespace StudySchedule.Services
             throw new NotImplementedException();
         }
 
-        public ICollection<Materia> GetMateria(Materia materiaId)
+        public ICollection<Materia> GetMaterias(Materia materiaId)
         {
             throw new NotImplementedException();
         }
