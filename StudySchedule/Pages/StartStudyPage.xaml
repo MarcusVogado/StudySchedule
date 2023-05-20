@@ -45,50 +45,54 @@
                 </CarouselView>
             </ScrollView>            
         </Grid>
-        <Border WidthRequest="200"
-                HeightRequest="200"              
-                StrokeThickness="7">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="100,100,100,100" />
-            </Border.StrokeShape>
-            <Border.Stroke>
-                <LinearGradientBrush EndPoint="1,0">
-                    <GradientStop Color="Green"
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Border WidthRequest="200"
+                    HeightRequest="200"              
+                    StrokeThickness="7">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="100,100,100,100" />
+                </Border.StrokeShape>
+                <Border.Stroke>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="Green"
                           Offset="0.5" />
-                    <GradientStop Color="Black"
+                        <GradientStop Color="Black"
                           Offset="0.5" />
-                </LinearGradientBrush>
-            </Border.Stroke>
-            <Label x:Name="timeItemSelected"
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <Label x:Name="timeItemSelected"
                    Text="01:30:00"
                    TextColor="Black"
                    FontAttributes="Bold"
                    VerticalTextAlignment="Center"
                    HorizontalTextAlignment="Center"
                    FontSize="30"/>
-        </Border>
-        <HorizontalStackLayout            
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="EndAndExpand"
-                >
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Button Text="clicked"
-                             x:Name="playandpauseBotton"                        
-                             WidthRequest="60"                            
-                             HeightRequest="50"                             
-                             CornerRadius="20"
-                             Clicked="playStop_Clicked" 
-                            />
-                <!-- <ImageButton Grid.ColumnSpan="1"
-                             Source="reset.png"
-                             WidthRequest="60"
-                             HeightRequest="60"                                 
-                             CornerRadius="20"                            
-                             Clicked="resetTimer_Clicked"/>-->
-            </Grid>
-        </HorizontalStackLayout>
+            </Border>
+        </StackLayout>
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="EndAndExpand"
+                     ZIndex="1">
+            <ImageButton  x:Name="playandpauseBotton"
+                        Source="play.png"
+                         HeightRequest="50"
+                         Clicked="playStop_Clicked"/>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="Common">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="Scale"
+                                                Value="1" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Scale"
+                                                Value="0.8" />                            
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </StackLayout>
     </Grid>
 </ContentPage>
