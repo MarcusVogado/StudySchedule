@@ -16,10 +16,8 @@ namespace StudySchedule.Services
         {
             _dbStudy = dbStudyContext;
         }
-
         public bool Create(Agenda agenda)
-        {
-            
+        {            
             try
             {
                 _dbStudy.Agendas.Add(agenda);
@@ -30,7 +28,6 @@ namespace StudySchedule.Services
             {
                 return false;
             }
-
         }
 
         public bool DeleteAgenda(Agenda agendaiD)
