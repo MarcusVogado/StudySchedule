@@ -13,6 +13,5 @@ namespace StudySchedule.Contracts
         public ICollection<Materia> GetMaterias(Materia materiaId);
         public void Update(Materia materia);
         public void Delete(Materia materiaId);
-
     }
 }
