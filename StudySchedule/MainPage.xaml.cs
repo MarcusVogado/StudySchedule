@@ -136,7 +136,6 @@ public partial class MainPage : ContentPage
         await Navigation.PushAsync(new Info());
     }
     #endregion
-
    
     private async void StartStudy_Clicked(object sender, EventArgs e)
     {
@@ -160,8 +159,6 @@ public partial class MainPage : ContentPage
         await Navigation.PushAsync(pagina);            
     }
 }
-
-
 
 //TODO- FAZER PAGINA DE CADASTRO DE MATÉRIA
 //TODO- FAZER PAGINA DE MONTAGEM DA AGENDA
