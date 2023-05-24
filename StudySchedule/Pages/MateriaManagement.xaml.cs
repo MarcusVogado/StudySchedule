@@ -1,3 +1,4 @@
+using Intents;
 using MigrationLibrary.Models;
 using StudySchedule.Services;
 
@@ -13,28 +14,32 @@ public partial class MateriaManagement : ContentPage
     }
 
     private async void SalveMateria_Clicked(object sender, EventArgs e)
-    {
-
+    {   
+        bool confirm;
         var button = (Button)sender;
         var existMateria = (Materia)button.CommandParameter;
-        if (existMateria == null)
+        var getMateria = serviceMateria.Get(existMateria);
+        try
         {
-            try
+            if (getMateria == null)
             {
-
+                Materia materia = new Materia();
+                materia.NomeMateria = nameMateria.Text;
+                confirm = serviceMateria.Create(materia);
+                if (confirm)
+                {
+                    await DisplayAlert("Materia", "Materia Salva com sucesso", "OK");
+                }
             }
-            catch (Exception menssagemExeption)
-            {
-                await DisplayAlert("Erro", "{Não foi possível salvar a Matéria}"+menssagemExeption.Message, "");
-            }
-            Materia materia = new Materia();
-            materia.NomeMateria = nameMateria.Text;
-            var confirm = serviceMateria.Create(materia);
+            confirm = serviceMateria.Update(getMateria);
             if (confirm)
             {
                 await DisplayAlert("Materia", "Materia Salva com sucesso", "OK");
             }
-
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Erro", "{Não foi possível salvar a Matéria}" + ex.Message, "");
         }
 
 

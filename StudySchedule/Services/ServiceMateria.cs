@@ -14,13 +14,16 @@ namespace StudySchedule.Services
         {
             throw new NotImplementedException();
         }
-
-        public bool Delete(Materia materiaId)
+        public Materia Get(Materia materiaId)
+        {
+            throw new NotImplementedException();
+        }
+        public ICollection<Materia> GetMaterias(Materia materiaId)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<Materia> GetMaterias(Materia materiaId)
+        public bool Delete(Materia materiaId)
         {
             throw new NotImplementedException();
         }
