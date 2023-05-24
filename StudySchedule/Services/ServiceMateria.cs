@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace StudySchedule.Services
 {
-    internal class ServiceMateria : IServiceMateria
+    public class ServiceMateria : IServiceMateria
     {
-        public void Create(Materia materia)
+        public bool Create(Materia materia)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(Materia materiaId)
+        public bool Delete(Materia materiaId)
         {
             throw new NotImplementedException();
         }
@@ -25,7 +25,7 @@ namespace StudySchedule.Services
             throw new NotImplementedException();
         }
 
-        public void Update(Materia materia)
+        public bool Update(Materia materia)
         {
             throw new NotImplementedException();
         }

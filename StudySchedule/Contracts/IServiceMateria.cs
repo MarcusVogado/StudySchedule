@@ -9,9 +9,9 @@ namespace StudySchedule.Contracts
 {
     public interface IServiceMateria
     {
-        public void Create(Materia materia);
+        public bool Create(Materia materia);
         public ICollection<Materia> GetMaterias(Materia materiaId);
-        public void Update(Materia materia);
-        public void Delete(Materia materiaId);
+        public bool Update(Materia materia);
+        public bool Delete(Materia materiaId);
     }
 }

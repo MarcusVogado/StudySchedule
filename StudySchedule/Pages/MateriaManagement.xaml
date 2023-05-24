@@ -17,7 +17,7 @@
         <Frame BorderColor="Green"
                Margin="30,0,30,0"
                >
-            <Entry 
+            <Entry x:Name="nameMateria"
                    Placeholder="{Binding NomeMateria}"
                    PlaceholderColor="Black"
                    FontAttributes="Bold"                   
@@ -37,7 +37,9 @@
                 BorderColor="Blue"
                 TextColor="Black"
                 BackgroundColor="ForestGreen"
-                Margin="80,0,80,0"/>
+                Margin="80,0,80,0"
+                CommandParameter="{Binding .}"
+                Clicked="SalveMateria_Clicked"/>
         </Grid>
     </Grid>
       
