@@ -39,21 +39,43 @@ namespace StudySchedule.Services
             {
                 return materia;
             }
-            return null;    
+            return null;
         }
         public ICollection<Materia> GetMaterias(Materia materiaId)
         {
-            throw new NotImplementedException();
+            var materia = new List<Materia>(_dbStudyContext.Materias);
+            return materia;
         }
 
         public bool Delete(Materia materiaId)
         {
-            throw new NotImplementedException();
+            var materia = Get(materiaId);
+            if (materia != null)
+            {
+                try
+                {
+                    _dbStudyContext.Remove(materia);
+                    var confirm = _dbStudyContext.SaveChanges();
+                    return (confirm > 0) ? true : false;
+                }
+                catch
+                {
+                    return false;
+                }               
+            }
+            return false;
         }
 
         public bool Update(Materia materia)
         {
-            throw new NotImplementedException();
+            var existMateria= Get(materia);
+            if(existMateria != null)
+            {
+                _dbStudyContext.Update(materia);
+               var confirm= _dbStudyContext.SaveChanges();
+                return (confirm>0) ? true : false;
+            }
+            return false;
         }
     }
 }
