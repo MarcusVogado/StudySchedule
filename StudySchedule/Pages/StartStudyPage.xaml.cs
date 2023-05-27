@@ -51,7 +51,7 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
     private async void playStop_Clicked(object sender, EventArgs e)
     {
         isRunning = !isRunning;
-        playandpauseBotton.Source = isRunning ? "pause.png" : "play.png";        
+        playandpauseBotton.Source = isRunning ? "pause.png" : "play.png";
         while (isRunning)
         {
             timer = timer - TimeSpan.FromSeconds(1);
@@ -61,13 +61,15 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
     }
     private void Onreset(object sender, EventArgs e)
     {
-        timer = timerItemSelected;       
+        timer = timerItemSelected;
         SetTime();
     }
 
     private void resetTimer_Clicked(object sender, EventArgs e)
     {
-
+        timer = timerItemSelected;
+        isRunning = !isRunning;
+        SetTime();
     }
 
     public void CarregarMaterias()
