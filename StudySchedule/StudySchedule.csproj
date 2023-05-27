@@ -51,6 +51,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\book.png" />
 	  <None Remove="Resources\Images\calendar.png" />
+	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\info.png" />
 	  <None Remove="Resources\Images\library.png" />
 	  <None Remove="Resources\Images\menu.png" />

@@ -44,11 +44,11 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
-    #region Anamation for Menu
+    #region Animation for Menu
     async private void MenuEvent_Clicked(object sender, TappedEventArgs e)
     {
-        _ = MainContent.TranslateTo(-this.Width * 0.5, this.Height * 0.1, AnimationDuration, Easing.CubicIn);
-        await MainContent.ScaleTo(0.7, AnimationDuration);
+        await (_ = MainContent.TranslateTo(-this.Width * 0.5, this.Height * 0.1, AnimationDuration, Easing.CubicIn));
+        _ = await MainContent.ScaleTo(0.7, AnimationDuration);
         _ = MainContent.FadeTo(0.7, AnimationDuration);
         MenuContainer.IsVisible = true;
     }

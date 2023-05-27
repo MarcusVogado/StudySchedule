@@ -183,7 +183,7 @@
                                     </Frame.GestureRecognizers>
                                     <Grid>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition/>
+                                            <RowDefinition />
                                         </Grid.RowDefinitions>
                                         <Label                                            
                                             TextColor="White"                                           
@@ -210,8 +210,33 @@
                                             WidthRequest="150"
                                             CharacterSpacing="1"
                                             MaxLines="2"  
-                                            HorizontalTextAlignment="Center">
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center">
                                         </Label>
+                                        <ImageButton Source="delete"
+                                                     HorizontalOptions="EndAndExpand"
+                                                     VerticalOptions="EndAndExpand"
+                                                     Grid.ColumnSpan="1"
+                                                     WidthRequest="50"
+                                                     >
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup x:Name="Common">
+                                                    <VisualState x:Name="Normal">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="Scale"
+                                                Value="1" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                    <VisualState x:Name="Pressed">
+                                                        <VisualState.Setters>
+                                                            <Setter Property="Scale"
+                                                Value="0.8" />
+                                                        </VisualState.Setters>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+
+                                        </ImageButton>
                                     </Grid>
                                 </Frame>
                             </DataTemplate>

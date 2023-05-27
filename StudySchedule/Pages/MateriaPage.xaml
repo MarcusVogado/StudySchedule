@@ -3,11 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
              NavigationPage.HasNavigationBar="True"             
              x:Class="StudySchedule.Pages.MateriaPage"            
-             Title="Minhas Matérias"
+             Title=""
              >
     
     <Grid>
-        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />            
+        </Grid.RowDefinitions>
+        <Grid  Grid.Row="0" BackgroundColor="{StaticResource Primary}">            
+            <ImageButton Source="library.png"
+                     WidthRequest="60"
+                     HeightRequest="70"
+                     HorizontalOptions="End"  
+                     Grid.Column="1" 
+                     Clicked="GoAddMateriaPage_Clicked">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="Common">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                                                Value="1" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                                                Value="0.8" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ImageButton>
+            
+            <Label Text="Adicionar Matéria"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontAttributes="Bold,Italic"
+                   FontSize="Title"/>
+        </Grid>                
+        
+        <Grid Grid.Row="1">
             <ScrollView HorizontalScrollBarVisibility="Never"
                         VerticalScrollBarVisibility="Never">
                 <CollectionView x:Name="MateriaCollection">
@@ -16,7 +52,13 @@
                             <Frame Margin="10,10,10,10"
                                    WidthRequest="330"
                                    HeightRequest="80">
-                                <Label Text="{Binding NomeMateria}"
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding NomeMateria}"
                                        TextColor="White"
                                        FontAttributes="Bold"
                                        FontSize="12"
@@ -24,14 +66,15 @@
                                        MaxLines="2"                                       
                                        VerticalTextAlignment="Center"
                                        HorizontalTextAlignment="Center">
-                                    <Label.Shadow>
-                                        <Shadow Brush="Black"
+                                        <Label.Shadow>
+                                            <Shadow Brush="Black"
                                                 Offset="15,0"
                                                 Radius="20"
                                                 Opacity="1"
                                                 />
-                                    </Label.Shadow>                                    
-                                </Label>                               
+                                        </Label.Shadow>
+                                    </Label>
+                                </Grid>                                        
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudySchedule.Pages.MateriaManagement"            
-             Title="Minha Matéria">
+             Title="">
     <Grid Margin="0,20,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -25,7 +25,8 @@
                    TextColor="Black"
                    HeightRequest="50"
                    TextTransform="Uppercase"
-                   FontSize="15"                 
+                   FontSize="15" 
+                   tex
                    />
         </Frame>
 

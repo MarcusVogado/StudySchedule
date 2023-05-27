@@ -13,9 +13,9 @@ namespace StudySchedule.Services
     {
         private readonly DbStudyContext _dbStudyContext;
 
-        public ServiceMateria(DbStudyContext dbStudyContext)
+        public ServiceMateria()
         {
-            _dbStudyContext = dbStudyContext;
+            _dbStudyContext =  new DbStudyContext();
         }
         public bool Create(Materia materia)
         {

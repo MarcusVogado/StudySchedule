@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False"
-             x:Class="StudySchedule.Pages.StartStudyPage">
+             x:Class="StudySchedule.Pages.StartStudyPage"
+             Title="">
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="1,0">
             <GradientStop Color="Black"
@@ -22,7 +23,7 @@
                                 HorizontalOptions="Center"
                                 VerticalOptions="StartAndExpand"
                               CurrentItemChanged="ItemAlteradoScrolled">
-                    <CarouselView.ItemsLayout>                        
+                    <CarouselView.ItemsLayout>
                         <LinearItemsLayout Orientation="Horizontal"
                                            ItemSpacing="60"
                                            SnapPointsType="MandatorySingle"
@@ -43,7 +44,7 @@
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
-            </ScrollView>            
+            </ScrollView>
         </Grid>
         <StackLayout HorizontalOptions="Center"
                      VerticalOptions="Center">
@@ -74,21 +75,19 @@
                      VerticalOptions="EndAndExpand"
                      ZIndex="1">
             <ImageButton  x:Name="playandpauseBotton"
-                        Source="play.png"
+                          Source="play.png"
                          HeightRequest="50"
                          Clicked="playStop_Clicked"/>
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="Common">
                     <VisualState x:Name="Normal">
                         <VisualState.Setters>
-                            <Setter Property="Scale"
-                                                Value="1" />
+                            <Setter Property="Scale" Value="1" />
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState x:Name="Pressed">
                         <VisualState.Setters>
-                            <Setter Property="Scale"
-                                                Value="0.8" />                            
+                            <Setter Property="Scale" Value="0.8" />
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>

@@ -28,4 +28,9 @@ public partial class MateriaPage : ContentPage
 
         MateriaCollection.ItemsSource = listMateria;
     }
+
+    private async void GoAddMateriaPage_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MateriaManagement());
+    }
 }
