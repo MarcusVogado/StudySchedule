@@ -101,7 +101,7 @@
             </Border>
 
             <HorizontalStackLayout Grid.Row="0" 
-                                   Padding="0,40,0,0"
+                                   Padding="0,45,0,0"
                                    Margin="0">
                 <Label Style="{StaticResource Key=labelForDays}"                   
                        Text="Seg.">

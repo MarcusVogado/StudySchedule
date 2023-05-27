@@ -25,8 +25,7 @@
                    TextColor="Black"
                    HeightRequest="50"
                    TextTransform="Uppercase"
-                   FontSize="15" 
-                   tex
+                   FontSize="15"                  
                    />
         </Frame>
 
