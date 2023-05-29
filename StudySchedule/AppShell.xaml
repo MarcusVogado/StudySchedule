@@ -9,11 +9,13 @@
     Shell.FlyoutBehavior="Disabled"
     FlyoutHeaderBehavior="CollapseOnScroll"
     BackgroundColor="#01403B"
+    ForegroundColor="White"
     TabBarBackgroundColor="#01403B"
     TabBarDisabledColor="White"
     TabBarUnselectedColor="#ccc"
     TabBarTitleColor="White"
     Shell.NavBarIsVisible="false"
+    
     >
     <Shell.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="#01403B" StatusBarStyle="LightContent" />
