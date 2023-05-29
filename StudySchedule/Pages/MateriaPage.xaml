@@ -49,9 +49,12 @@
                 <CollectionView x:Name="MateriaCollection">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame Margin="10,10,10,10"
-                                   WidthRequest="330"
-                                   HeightRequest="80">
+                            <Frame Margin="10,5,10,10"                                   
+                                   HeightRequest="90"
+                                   BackgroundColor="Azure">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GoAddMateriaPage_Clicked" CommandParameter="{ Binding .}"/>
+                                </Frame.GestureRecognizers>
 
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -59,16 +62,17 @@
                                         <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
                                     <Label Text="{Binding NomeMateria}"
-                                       TextColor="White"
+                                       TextColor="Black"
                                        FontAttributes="Bold"
-                                       FontSize="12"
+                                       FontSize="18"
                                        CharacterSpacing="1"
-                                       MaxLines="2"                                       
-                                       VerticalTextAlignment="Center"
-                                       HorizontalTextAlignment="Center">
+                                       MaxLines="2" 
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"
+                                           HorizontalTextAlignment="Center">
                                         <Label.Shadow>
-                                            <Shadow Brush="Black"
-                                                Offset="15,0"
+                                            <Shadow Brush="Gray"
+                                                Offset="10,0"
                                                 Radius="20"
                                                 Opacity="1"
                                                 />

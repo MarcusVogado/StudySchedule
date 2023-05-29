@@ -33,4 +33,5 @@ public partial class MateriaPage : ContentPage
     {
         await Navigation.PushAsync(new MateriaManagement());
     }
+   
 }
