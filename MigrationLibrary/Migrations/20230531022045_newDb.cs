@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace MigrationLibrary.Migrations
 {
     /// <inheritdoc />
-    public partial class DbInicial : Migration
+    public partial class newDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,9 +36,7 @@ namespace MigrationLibrary.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     DiaSemana = table.Column<string>(type: "TEXT", nullable: false),
-                    HoraInicio = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    HoraFim = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    NotificationStatus = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Duracao = table.Column<int>(type: "INTEGER", nullable: false),
                     MateriaId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

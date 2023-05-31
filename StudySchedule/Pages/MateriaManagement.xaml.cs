@@ -1,4 +1,5 @@
 using MigrationLibrary.Models;
+using StudySchedule.Contracts;
 using StudySchedule.Services;
 
 namespace StudySchedule.Pages;
@@ -8,8 +9,8 @@ public partial class MateriaManagement : ContentPage
   private readonly ServiceMateria _serviceMateria;
     public MateriaManagement()
     {
-        InitializeComponent();
-        _serviceMateria =  new ServiceMateria();
+        InitializeComponent();  
+        _serviceMateria = new ServiceMateria();
     }
 
     private async void SalveMateria_Clicked(object sender, EventArgs e)

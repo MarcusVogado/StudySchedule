@@ -1,32 +1,30 @@
 using MigrationLibrary.Models;
+using StudySchedule.Contracts;
+using StudySchedule.Services;
 
 namespace StudySchedule.Pages;
 
 public partial class MateriaPage : ContentPage
 {
-    List<Materia> listMateria = new List<Materia> {
-        new Materia {NomeMateria="Portugues",Id=1},
-        new Materia {NomeMateria="Matemática",Id=1 },
-        new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-         new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-          new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-           new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-            new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-             new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-              new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-               new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-                new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-                 new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-                  new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-                   new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-                   new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-                   new Materia {NomeMateria="Programação Orientada a Objetos",Id=1},
-    };
+    private readonly IServiceMateria serviceMateria;
+
+    [Obsolete]
     public MateriaPage()
     {
         InitializeComponent();
+        serviceMateria = new ServiceMateria();
 
-        MateriaCollection.ItemsSource = listMateria;
+        Task.Run(() =>
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            { 
+                var listMaterias= await serviceMateria.GetMaterias();
+                if (listMaterias != null)
+                {
+                    MateriaCollection.ItemsSource= listMaterias;
+                }               
+            });
+        });              
     }
 
     private async void GoAddMateriaPage_Clicked(object sender, EventArgs e)

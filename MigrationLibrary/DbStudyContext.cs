@@ -15,7 +15,7 @@ namespace MigrationLibrary
         }
         public DbStudyContext(DbContextOptions<DbStudyContext> options) : base(options)
         {
-            Database.Migrate();
+            Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseSqlite();

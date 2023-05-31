@@ -4,6 +4,7 @@ using StudySchedule.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,16 +35,16 @@ namespace StudySchedule.Services
         }
         public Materia Get(Materia materiaId)
         {
-            var materia = _dbStudyContext.Materias.FirstOrDefault(materiaId);
+            var materia = _dbStudyContext.Materias.Find(materiaId.Id);
             if (materia != null)
             {
                 return materia;
             }
             return null;
         }
-        public ICollection<Materia> GetMaterias(Materia materiaId)
+        public async  Task<ICollection<Materia>> GetMaterias()
         {
-            var materia = new List<Materia>(_dbStudyContext.Materias);
+            var materia = new List<Materia>(_dbStudyContext.Materias).ToList();
             return materia;
         }
 

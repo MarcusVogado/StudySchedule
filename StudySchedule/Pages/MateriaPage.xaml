@@ -22,13 +22,13 @@
                         <VisualState x:Name="Normal">
                             <VisualState.Setters>
                                 <Setter Property="Scale"
-                                                Value="1" />
+                                                Value="1"/>
                             </VisualState.Setters>
                         </VisualState>
                         <VisualState x:Name="Pressed">
                             <VisualState.Setters>
                                 <Setter Property="Scale"
-                                                Value="0.8" />
+                                                Value="0.8"/>
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>

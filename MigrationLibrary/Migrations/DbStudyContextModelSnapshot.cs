@@ -27,16 +27,10 @@ namespace MigrationLibrary.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("HoraFim")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("HoraInicio")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("MateriaId")
+                    b.Property<int>("Duracao")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("NotificationStatus")
+                    b.Property<int>("MateriaId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

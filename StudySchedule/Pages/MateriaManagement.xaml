@@ -15,10 +15,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
-            </Grid.RowDefinitions>
-       
-        <Frame BorderColor="Green"               
-               >
+            </Grid.RowDefinitions>       
+        <Frame BorderColor="Green">
             <Entry x:Name="nameMateria"
                    Placeholder="{Binding NomeMateria}"
                    PlaceholderColor="Black"
@@ -27,8 +25,7 @@
                    TextColor="Black"
                    HeightRequest="50"
                    TextTransform="Uppercase"
-                   FontSize="15"                  
-                   />
+                   FontSize="15"/>
         </Frame>
 
             <Button

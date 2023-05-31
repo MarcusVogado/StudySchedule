@@ -11,8 +11,8 @@ using MigrationLibrary;
 namespace MigrationLibrary.Migrations
 {
     [DbContext(typeof(DbStudyContext))]
-    [Migration("20230508235354_DbInicial")]
-    partial class DbInicial
+    [Migration("20230531022045_newDb")]
+    partial class newDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,16 +30,10 @@ namespace MigrationLibrary.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("HoraFim")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("HoraInicio")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("MateriaId")
+                    b.Property<int>("Duracao")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("NotificationStatus")
+                    b.Property<int>("MateriaId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

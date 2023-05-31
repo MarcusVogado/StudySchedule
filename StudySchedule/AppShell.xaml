@@ -14,9 +14,7 @@
     TabBarDisabledColor="White"
     TabBarUnselectedColor="#ccc"
     TabBarTitleColor="White"
-    Shell.NavBarIsVisible="false"
-    
-    >
+    Shell.NavBarIsVisible="false">
     <Shell.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="#01403B" StatusBarStyle="LightContent" />
     </Shell.Behaviors>  
