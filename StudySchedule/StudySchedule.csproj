@@ -77,10 +77,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\MigrationLibrary\MigrationLibrary.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="Pages\Info.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -97,6 +93,10 @@
 
 	<ItemGroup>
 	  <Folder Include="Helpers\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SqliteClassLibrary\SqliteClassLibrary.csproj" />
 	</ItemGroup>
 
 </Project>

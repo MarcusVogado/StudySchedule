@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Internal;
 using Microsoft.Extensions.Logging;
-using MigrationLibrary;
+using SqliteClassLibrary;
 
 namespace StudySchedule;
 
@@ -22,8 +22,8 @@ public static class MauiProgram
 
 #if DEBUG
 		builder.Logging.AddDebug();
-		builder.Services.AddDbContext<DbStudyContext>(options => options.UseSqlite($"Filename={GetDatabasePath()}",
-			x => x.MigrationsAssembly(nameof(MigrationLibrary))));
+		builder.Services.AddDbContext<StudyContext>(options => options.UseSqlite($"Filename={GetDatabasePath()}",
+			x => x.MigrationsAssembly(nameof(SqliteClassLibrary))));
 #endif
 
 		return builder.Build();

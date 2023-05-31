@@ -1,19 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MigrationLibrary.Models;
+using SqliteClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MigrationLibrary
+namespace SqliteClassLibrary
 {
-    public class DbStudyContext : DbContext
+    public class StudyContext: DbContext
     {
-        public DbStudyContext()
+        public StudyContext()
         {
+
         }
-        public DbStudyContext(DbContextOptions<DbStudyContext> options) : base(options)
+        public StudyContext(DbContextOptions<StudyContext> options) : base(options)
         {
             Database.Migrate();
         }

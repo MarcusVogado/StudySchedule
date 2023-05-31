@@ -1,5 +1,5 @@
-﻿using MigrationLibrary;
-using MigrationLibrary.Models;
+﻿using SqliteClassLibrary;
+using SqliteClassLibrary.Models;
 using StudySchedule.Contracts;
 using System;
 using System.Collections.Generic;
@@ -11,8 +11,8 @@ namespace StudySchedule.Services
 {
     internal class ServiceAgenda : IServiceAgenda
     {
-        private readonly DbStudyContext _dbStudy;
-        public ServiceAgenda(DbStudyContext dbStudyContext)
+        private readonly StudyContext _dbStudy;
+        public ServiceAgenda(StudyContext dbStudyContext)
         {
             _dbStudy = dbStudyContext;
         }

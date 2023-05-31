@@ -1,5 +1,6 @@
-﻿using MigrationLibrary;
-using MigrationLibrary.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SqliteClassLibrary;
+using SqliteClassLibrary.Models;
 using StudySchedule.Contracts;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,11 @@ namespace StudySchedule.Services
 {
     public class ServiceMateria : IServiceMateria
     {
-        private readonly DbStudyContext _dbStudyContext;
+        private readonly StudyContext _dbStudyContext;
 
         public ServiceMateria()
         {
-            _dbStudyContext =  new DbStudyContext();
+            _dbStudyContext =  new StudyContext();
         }
         public bool Create(Materia materia)
         {
@@ -44,7 +45,7 @@ namespace StudySchedule.Services
         }
         public async  Task<ICollection<Materia>> GetMaterias()
         {
-            var materia = new List<Materia>(_dbStudyContext.Materias).ToList();
+            var materia =  await _dbStudyContext.Materias.ToListAsync();
             return materia;
         }
 

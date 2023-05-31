@@ -1,4 +1,4 @@
-using MigrationLibrary.Models;
+using SqliteClassLibrary.Models;
 using StudySchedule.Contracts;
 using StudySchedule.Services;
 

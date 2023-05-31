@@ -1,4 +1,4 @@
-using MigrationLibrary.Models;
+using SqliteClassLibrary.Models;
 using System.ComponentModel;
 using System.Reflection;
 using System.Runtime.CompilerServices;
