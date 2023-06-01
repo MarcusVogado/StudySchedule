@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudySchedule.Data
 {
-    public class FileAcessDb
+    public class FileAccessDb
     {
         public static string GetLocalFilePath(string filename)
         {

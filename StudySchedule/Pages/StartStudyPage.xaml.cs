@@ -1,4 +1,4 @@
-using SqliteClassLibrary.Models;
+using StudySchedule.Models;
 using System.ComponentModel;
 using System.Reflection;
 using System.Runtime.CompilerServices;

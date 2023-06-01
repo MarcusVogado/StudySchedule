@@ -1,4 +1,4 @@
-﻿using SqliteClassLibrary.Models;
+﻿using StudySchedule.Models;
 using StudySchedule.Pages;
 
 namespace StudySchedule;

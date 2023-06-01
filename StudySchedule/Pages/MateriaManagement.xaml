@@ -20,11 +20,11 @@
             <Entry x:Name="nameMateria"
                    Placeholder="{Binding NomeMateria}"
                    PlaceholderColor="Black"
-                   FontAttributes="Bold"                   
-                   HorizontalTextAlignment="Center"
-                   TextColor="Black"
+                   Text="{Binding NomeMateria}"
+                   FontAttributes="Bold"  
+                   TextColor="Black"                   
                    HeightRequest="50"
-                   TextTransform="Uppercase"
+                   FlowDirection="LeftToRight"                   
                    FontSize="15"/>
         </Frame>
 

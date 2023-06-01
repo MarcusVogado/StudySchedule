@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Internal;
 using Microsoft.Extensions.Logging;
-using SqliteClassLibrary;
 using StudySchedule.Data;
 using StudySchedule.Services;
 
@@ -21,13 +20,11 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-
-#if DEBUG
-		builder.Logging.AddDebug();
-        string dbPath = FileAccessDb.GetLocalFilePath("people.db3");
+						
+        string dbPath = FileAccessDb.GetLocalFilePath("StudyDb.db3");
         builder.Services.AddSingleton<ServiceMateria>(s => ActivatorUtilities.CreateInstance<ServiceMateria>(s, dbPath));
 		builder.Services.AddSingleton<ServiceAgenda>(s=> ActivatorUtilities.CreateInstance<ServiceAgenda>(s, dbPath));
-#endif
+
 
         return builder.Build();
 	}	

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SqliteClassLibrary;
-using SqliteClassLibrary.Models;
+using SQLite;
 using StudySchedule.Contracts;
+using StudySchedule.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +13,27 @@ namespace StudySchedule.Services
 {
     public class ServiceMateria : IServiceMateria
     {
-        private readonly StudyContext _dbStudyContext;
+        string _dbPath;
+        private SQLiteConnection conn;
 
-        public ServiceMateria()
+        
+        private void Init()
         {
-            _dbStudyContext =  new StudyContext();
+            if (conn != null) return;
+            conn = new SQLiteConnection(_dbPath);
+            conn.CreateTable<Materia>();
+        }
+        public ServiceMateria(string dbPath)
+        {
+            _dbPath = dbPath;
         }
         public bool Create(Materia materia)
         {
             try
             {
-                if (materia == null) return false;
-                _dbStudyContext.Add(materia);
-                var confirm = _dbStudyContext.SaveChanges();
+                Init();
+                if (materia == null) return false;                 
+                var confirm = conn.Insert(materia);
                 return (confirm > 0) ? true : false;
 
             }
@@ -36,28 +44,36 @@ namespace StudySchedule.Services
         }
         public Materia Get(Materia materiaId)
         {
-            var materia = _dbStudyContext.Materias.Find(materiaId.Id);
-            if (materia != null)
+            try
             {
-                return materia;
+                Init();
+                var materia = from u in conn.Table<Materia>()
+                              where u.Id == materiaId.Id
+                              select u;
+                return materia.FirstOrDefault();
             }
-            return null;
+            catch(Exception ex)
+            {
+                return null;
+            }
+           
         }
         public async  Task<ICollection<Materia>> GetMaterias()
         {
-            var materia =  await _dbStudyContext.Materias.ToListAsync();
+            Init();
+            var materia = conn.Table<Materia>().ToList();
             return materia;
         }
 
         public bool Delete(Materia materiaId)
         {
+            Init();
             var materia = Get(materiaId);
             if (materia != null)
             {
                 try
-                {
-                    _dbStudyContext.Remove(materia);
-                    var confirm = _dbStudyContext.SaveChanges();
+                {                   
+                    var confirm = conn.Delete(materia);
                     return (confirm > 0) ? true : false;
                 }
                 catch
@@ -70,11 +86,11 @@ namespace StudySchedule.Services
 
         public bool Update(Materia materia)
         {
+            Init();
             var existMateria= Get(materia);
             if(existMateria != null)
-            {
-                _dbStudyContext.Update(materia);
-               var confirm= _dbStudyContext.SaveChanges();
+            {              
+               var confirm = conn.Update(materia);
                 return (confirm>0) ? true : false;
             }
             return false;
