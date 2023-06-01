@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudySchedule.Services
 {
-    internal class ServiceAgenda : IServiceAgenda
+    public class ServiceAgenda : IServiceAgenda
     {
         private readonly StudyContext _dbStudy;
         public ServiceAgenda(StudyContext dbStudyContext)

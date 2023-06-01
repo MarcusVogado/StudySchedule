@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudySchedule", "StudySchedule\StudySchedule.csproj", "{B80250D9-3CD0-4C81-B265-B14407B920E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteClassLibrary", "SqliteClassLibrary\SqliteClassLibrary.csproj", "{E3CD9EE3-FD1D-46E3-9C9A-562CE1D1F229}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,10 +17,6 @@ Global
 		{B80250D9-3CD0-4C81-B265-B14407B920E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B80250D9-3CD0-4C81-B265-B14407B920E6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B80250D9-3CD0-4C81-B265-B14407B920E6}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{E3CD9EE3-FD1D-46E3-9C9A-562CE1D1F229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3CD9EE3-FD1D-46E3-9C9A-562CE1D1F229}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3CD9EE3-FD1D-46E3-9C9A-562CE1D1F229}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3CD9EE3-FD1D-46E3-9C9A-562CE1D1F229}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

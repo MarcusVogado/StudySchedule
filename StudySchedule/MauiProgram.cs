@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Internal;
 using Microsoft.Extensions.Logging;
 using SqliteClassLibrary;
+using StudySchedule.Data;
+using StudySchedule.Services;
 
 namespace StudySchedule;
 
@@ -22,29 +24,11 @@ public static class MauiProgram
 
 #if DEBUG
 		builder.Logging.AddDebug();
-		builder.Services.AddDbContext<StudyContext>(options => options.UseSqlite($"Filename={GetDatabasePath()}",
-			x => x.MigrationsAssembly(nameof(SqliteClassLibrary))));
+        string dbPath = FileAccessDb.GetLocalFilePath("people.db3");
+        builder.Services.AddSingleton<ServiceMateria>(s => ActivatorUtilities.CreateInstance<ServiceMateria>(s, dbPath));
+		builder.Services.AddSingleton<ServiceAgenda>(s=> ActivatorUtilities.CreateInstance<ServiceAgenda>(s, dbPath));
 #endif
 
-		return builder.Build();
-	}
-	public static string GetDatabasePath()
-	{
-		var databasePath = "";
-		var databaseName = "StudyDb.db3";
-		if(DeviceInfo.Platform== DevicePlatform.Android)
-		{
-			databasePath=Path.Combine(FileSystem.AppDataDirectory, databaseName);
-
-		}
-		if(DeviceInfo.Platform== DevicePlatform.iOS)
-		{
-            SQLitePCL.Batteries_V2.Init();
-            databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..", "Library", databaseName);
-        }
-        // add other platforms if needed
-		// adicione outras plataformas se necessario para obter o path combine
-        
-        return databasePath;
-	}
+        return builder.Build();
+	}	
 }

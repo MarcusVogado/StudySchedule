@@ -1,11 +1,17 @@
-﻿namespace StudySchedule;
+﻿using StudySchedule.Services;
+
+namespace StudySchedule;
 
 public partial class App : Application
-{
-	public App()
+{	public static ServiceMateria ServiceMateria { get; private set; }
+	public static ServiceAgenda ServiceAgenda { get; private set; }
+	public App(ServiceMateria matetriaService, ServiceAgenda agendaService )
 	{
 		InitializeComponent();
 
 		MainPage = new AppShell();
+
+		ServiceAgenda = agendaService;
+		ServiceMateria = matetriaService;
 	}
 }
