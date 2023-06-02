@@ -58,7 +58,7 @@ namespace StudySchedule.Services
             }
            
         }
-        public async  Task<ICollection<Materia>> GetMaterias()
+        public ICollection<Materia> GetMaterias()
         {
             Init();
             var materia = conn.Table<Materia>().ToList();
