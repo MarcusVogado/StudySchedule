@@ -8,9 +8,6 @@ public partial class MainPage : ContentPage
 {
     
     private const uint AnimationDuration = 1000u;
-   
-    
-   
  
     public MainPage()
 	{
