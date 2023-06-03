@@ -71,6 +71,11 @@
                        FontAttributes="Bold,Italic"
                        HorizontalTextAlignment="Center"
                        Margin="0,5,0,0"/>
+                <ImageButton Source="library"
+                             WidthRequest="50"
+                             VerticalOptions="Start"
+                             HorizontalOptions="End"
+                    />
             </StackLayout>
 
             <Border
@@ -103,14 +108,15 @@
             <HorizontalStackLayout Grid.Row="0" 
                                    Padding="0,45,0,0"
                                    Margin="0">
-                <Label Style="{StaticResource Key=labelForDays}"                   
+                <Label x:Name="segunda"
+                    Style="{StaticResource Key=labelForDays}"                   
                        Text="Seg.">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Monday_Clicked"/>
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Label
+                <Label x:Name="terca"
                     Style="{StaticResource Key=labelForDays}"
                     Text="Terç.">
                     <Label.GestureRecognizers>
@@ -118,7 +124,7 @@
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Label 
+                <Label x:Name="quarta"
                     Style="{StaticResource Key=labelForDays}"
                     Text="Qua.">
                     <Label.GestureRecognizers>
@@ -126,7 +132,7 @@
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Label 
+                <Label x:Name="quinta"
                     Style="{StaticResource Key=labelForDays}"
                     Text="Qui.">
                     <Label.GestureRecognizers>
@@ -134,7 +140,7 @@
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Label 
+                <Label x:Name="sexta"
                     Style="{StaticResource Key=labelForDays}"
                     Text="Sex.">
                     <Label.GestureRecognizers>
@@ -142,7 +148,7 @@
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Label 
+                <Label x:Name="sabado"
                     Style="{StaticResource Key=labelForDays}"
                     Text="Sáb.">
                     <Label.GestureRecognizers>
@@ -150,7 +156,7 @@
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Label 
+                <Label x:Name="domingo"
                     Style="{StaticResource Key=labelForDays}"
                     Text="Dom.">
                     <Label.GestureRecognizers>

@@ -74,8 +74,15 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
 
     public void CarregarMaterias()
     {
-        List<Object> collection = new List<Object>((IEnumerable<Object>)this.BindingContext);
-        collectionStartStudy.ItemsSource = collection;
+        if(this.BindingContext != null)
+        {
+			List<Object> collection = new List<Object>((IEnumerable<Object>)this.BindingContext);
+			collectionStartStudy.ItemsSource = collection;
+        }
+        else
+        {
+            DisplayAlert("OPS..", "SEM MATÉRIAS PARA O DIA SELECIONADO", "OK");
+        }        
     }
 
     private void ItemAlteradoScrolled(object sender, CurrentItemChangedEventArgs e)

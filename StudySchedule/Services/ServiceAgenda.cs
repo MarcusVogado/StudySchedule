@@ -11,8 +11,7 @@ namespace StudySchedule.Services
 {
     public class ServiceAgenda : IServiceAgenda
     {
-        string _dbPath;
-       
+        string _dbPath;       
         
         private SQLiteConnection conn;
         

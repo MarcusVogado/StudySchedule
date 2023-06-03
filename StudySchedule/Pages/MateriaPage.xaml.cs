@@ -6,9 +6,7 @@ using StudySchedule.Services;
 namespace StudySchedule.Pages;
 
 public partial class MateriaPage : ContentPage
-{
-    private readonly ServiceMateria serviceMateria;
-
+{   
     [Obsolete]
     public MateriaPage()
     {
@@ -16,9 +14,9 @@ public partial class MateriaPage : ContentPage
 
         Task.Run(() =>
         {
-            Device.BeginInvokeOnMainThread(async () =>
+            Device.BeginInvokeOnMainThread(() =>
             { 
-                var listMaterias= await App.ServiceMateria.GetMaterias();
+                var listMaterias= App.ServiceMateria.GetMaterias();
                 if (listMaterias != null)
                 {
                     MateriaCollection.ItemsSource= listMaterias;

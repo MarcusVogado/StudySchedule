@@ -1,17 +1,17 @@
 ﻿using StudySchedule.Models;
 using StudySchedule.Pages;
-using Windows.ApplicationModel.Background;
+using StudySchedule.Services;
+using System.Linq;
 
 namespace StudySchedule;
 
 public partial class MainPage : ContentPage
 {
     
-    private const uint AnimationDuration = 1000u;
- 
+    private const uint AnimationDuration = 1000u;   
     public MainPage()
 	{
-		InitializeComponent();
+		InitializeComponent();        
 	}
     #region Animation for Menu
     async private void MenuEvent_Clicked(object sender, TappedEventArgs e)
@@ -37,44 +37,107 @@ public partial class MainPage : ContentPage
     #region Days List For Clicked
     private void Monday_Clicked(object sender, TappedEventArgs e)
     {
-        const string diaSemana = "Segunda-Feira";
-        LoadingListAgenda(diaSemana);
-	}     
+		#region FontAndClicked
+		segunda.FontSize = 25;
+        terca.FontSize = 19;
+        quarta.FontSize = 19;
+        quinta.FontSize = 19;
+        sexta.FontSize = 19;
+        sabado.FontSize = 19;
+        domingo.FontSize = 19;
+		#endregion
+		/*const string diaSemana = "Segunda-Feira";
+        LoadingListAgenda(diaSemana);*/
+	}
 
-    private void Tuesday_Clicked(object sender, TappedEventArgs e)
-    {
+	private void Tuesday_Clicked(object sender, TappedEventArgs e)
+	{
+		#region FontAndClicked
+		segunda.FontSize = 19;
+		terca.FontSize = 25;
+		quarta.FontSize = 19;
+		quinta.FontSize = 19;
+		sexta.FontSize = 19;
+		sabado.FontSize = 19;
+		domingo.FontSize = 19;
+		#endregion
 		const string diaSemana = "Terça-Feira";
 		LoadingListAgenda(diaSemana);
 	}
 
     private void Wednesday_Clicked(object sender, TappedEventArgs e)
-    {
+	{
+		#region FontAndClicked
+		segunda.FontSize = 19;
+		terca.FontSize = 19;
+		quarta.FontSize = 25;
+		quinta.FontSize = 19;
+		sexta.FontSize = 19;
+		sabado.FontSize = 19;
+		domingo.FontSize = 19;
+		#endregion
 		const string diaSemana = "Quarta-Feira";
 		LoadingListAgenda(diaSemana);
 
 	}
 
     private void Thursday_Clicked(object sender, TappedEventArgs e)
-    {
+	{
+		#region FontAndClicked
+		segunda.FontSize = 19;
+		terca.FontSize = 19;
+		quarta.FontSize = 19;
+		quinta.FontSize = 25;
+		sexta.FontSize = 19;
+		sabado.FontSize = 19;
+		domingo.FontSize = 19;
+		#endregion
 		const string diaSemana = "Quinta-Feira";
 		LoadingListAgenda(diaSemana);
 	}
 
     private void Friday_Clicked(object sender, TappedEventArgs e)
-    {
+	{
+		#region FontAndClicked
+		segunda.FontSize = 19;
+		terca.FontSize = 19;
+		quarta.FontSize = 19;
+		quinta.FontSize = 19;
+		sexta.FontSize = 25;
+		sabado.FontSize = 19;
+		domingo.FontSize = 19;
+		#endregion
 		const string diaSemana = "Sexta-Feira";
 		LoadingListAgenda(diaSemana);
 
 	}
 
     private void Saturday_Clicked(object sender, TappedEventArgs e)
-    {
+	{
+		#region FontAndClicked
+		segunda.FontSize = 19;
+		terca.FontSize = 19;
+		quarta.FontSize = 19;
+		quinta.FontSize = 19;
+		sexta.FontSize = 19;
+		sabado.FontSize = 25;
+		domingo.FontSize = 19;
+		#endregion
 		const string diaSemana = "Sábado";
 		LoadingListAgenda(diaSemana);
 	}
 
     private void Sunday_Clicked(object sender, TappedEventArgs e)
-    {
+	{
+		#region FontAndClicked
+		segunda.FontSize = 19;
+		terca.FontSize = 19;
+		quarta.FontSize = 19;
+		quinta.FontSize = 19;
+		sexta.FontSize = 19;
+		sabado.FontSize = 19;
+		domingo.FontSize = 25;
+		#endregion
 		const string diaSemana = "Domingo";
 		LoadingListAgenda(diaSemana);
 	}
