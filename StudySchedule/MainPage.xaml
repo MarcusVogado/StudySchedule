@@ -77,8 +77,7 @@
                              WidthRequest="50"
                              HeightRequest="30"
                              VerticalOptions="Start"
-                             HorizontalOptions="End"  
-                                 
+                             HorizontalOptions="End"                                   
                     />
                     <Label Text="Adicionar matéria"
                            Grid.Row="0"
@@ -86,7 +85,7 @@
                            FontSize="10"
                            HorizontalOptions="End"
                            VerticalOptions="End"                          
-                           />                  
+                           />                 
                     
                 </Grid>
                 
