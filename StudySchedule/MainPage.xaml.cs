@@ -209,7 +209,13 @@ public partial class MainPage : ContentPage
 		ProgressLoading.Progress = 0;
 	}
 
-
+	private void GoToAgendaDayPage(object sender, EventArgs e)
+	{
+		var button = (ImageButton)sender;
+		var pagina= new AgendaDayPage();
+		pagina.BindingContext =(Agenda)button.CommandParameter;
+		Navigation.PushAsync(pagina);
+	}
 }
 
 

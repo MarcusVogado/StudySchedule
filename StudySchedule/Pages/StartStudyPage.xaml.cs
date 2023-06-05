@@ -1,3 +1,4 @@
+using StudySchedule.Helpers;
 using StudySchedule.Models;
 using System.ComponentModel;
 using System.Reflection;
@@ -14,12 +15,8 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
     TimeSpan timerItemSelected;
     int horas;
     int minutos;
-    int segundos = 0;
-
-
-
+    int segundos = 0; 
     public event PropertyChangedEventHandler PropertyChanged;
-
     private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
     {
         if (PropertyChanged != null)
@@ -36,7 +33,7 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
     [Obsolete]
     public StartStudyPage()
     {
-        InitializeComponent();
+        InitializeComponent();        
 
         Task.Run(() =>
         {
@@ -88,12 +85,12 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
     private void ItemAlteradoScrolled(object sender, CurrentItemChangedEventArgs e)
     {
         isRunning = false;
-        playandpauseBotton.Source = "play.neg";
+        playandpauseBotton.Source = "play.png";
         var itemSelected = (CurrentItemChangedEventArgs)e;
         Agenda agenda = new Agenda();
         if (itemSelected.CurrentItem != null)
         {
-            var propriedades = getPropertyValues(itemSelected.CurrentItem);
+			var propriedades = App.ObjectGetPropertyValues.getPropertyValues(itemSelected.CurrentItem);
             var duracao = propriedades.Where(a => a.Key == "Agenda");
             foreach (var a in duracao)
             {
@@ -107,20 +104,5 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
             ItemSelected.Text = timerItemSelected.ToString();
         }
         return;
-
-    }
-    public static Dictionary<string, object> getPropertyValues(object o)
-    {
-        if (o == null) return null;
-        Dictionary<string, object> propertyValues = new Dictionary<string, object>();
-        Type ObjectType = o.GetType();
-        System.Reflection.PropertyInfo[] properties = ObjectType.GetProperties();
-        foreach (System.Reflection.PropertyInfo property in properties)
-        {
-            propertyValues.Add(property.Name, property.GetValue(o, null));
-        }
-        return propertyValues;
-    }
-
-
+    } 
 }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudySchedule.Pages.AgendaDayPage"
+             Title="AgendaDayPage">
+    <Grid Grid.Row="0"
+                  Padding="0,100,0,0">
+        <ScrollView HorizontalScrollBarVisibility="Never"
+                            VerticalScrollBarVisibility="Never">
+            <CollectionView x:Name="AgendaCollection"                                   >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10,10,10,10"                                          
+                                       HasShadow="True"
+                                       HeightRequest="70"
+                                       Padding="5,5,3,0">
+                            <Frame.Background>
+                                <LinearGradientBrush EndPoint="1,0">
+                                    <GradientStop Color="{StaticResource Primary}"
+                                                          Offset="0.8"/>
+                                    <GradientStop Color="Black"
+                                                          Offset="0.1"/>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="GoToManagementPage_Clicked" CommandParameter="{Binding Materia}"/>
+                            </Frame.GestureRecognizers>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Label                                            
+                                            TextColor="White"                                           
+                                            CharacterSpacing="1"                                            
+                                            MaxLines="2"
+                                            VerticalTextAlignment="Center"
+                                            HorizontalTextAlignment="Start">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Agenda.Duracao }"
+                                                          FontSize="18"/>
+                                            <Span Text=" - Min"
+                                                          FontSize="18"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <Label 
+                                            Grid.Row="1"                                                
+                                            Text="{Binding Materia.NomeMateria}"
+                                            TextColor="White"
+                                            FontAttributes="Bold"
+                                            FontSize="18"
+                                            WidthRequest="150"
+                                            CharacterSpacing="1"
+                                            MaxLines="2"  
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center">
+                                </Label>
+                                <ImageButton Source="delete"
+                                                     HorizontalOptions="EndAndExpand"
+                                                     VerticalOptions="EndAndExpand"
+                                                     Grid.ColumnSpan="1"
+                                                     WidthRequest="50"
+                                                     >
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="Common">
+                                            <VisualState x:Name="Normal">
+                                                <VisualState.Setters>
+                                                    <Setter Property="Scale"
+                                                Value="1" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="Pressed">
+                                                <VisualState.Setters>
+                                                    <Setter Property="Scale"
+                                                Value="0.8" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+
+                                </ImageButton>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>      
+        <ProgressBar x:Name="ProgressLoading" 
+                             Progress="0.2"
+                             IsVisible="false"
+                             ProgressColor="Red"
+                             HeightRequest="20">
+        </ProgressBar>
+        <Label IsVisible="false"
+                       x:Name="textLoading"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       FontSize="15"                       
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Margin="0,23,0,0"/>
+    </Grid>
+</ContentPage>

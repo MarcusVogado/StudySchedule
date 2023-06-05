@@ -11,10 +11,8 @@ namespace StudySchedule.Services
 {
     public class ServiceAgenda : IServiceAgenda
     {
-        string _dbPath;       
-        
-        private SQLiteConnection conn;
-        
+        string _dbPath;
+        private SQLiteConnection conn;        
         private void Init()
         {
             if (conn != null) return;

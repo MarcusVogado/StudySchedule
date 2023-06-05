@@ -18,7 +18,7 @@ public partial class MateriaManagement : ContentPage
         bool confirm;
         var button = (Button)sender;
         var existMateria = (Materia)button.CommandParameter;
-        var getMateria = App.ServiceMateria.Get(existMateria);
+        var getMateria = App.ServiceMateria.Get(existMateria.Id);
         try
         {
 

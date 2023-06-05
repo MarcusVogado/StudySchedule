@@ -77,7 +77,8 @@
                              WidthRequest="50"
                              HeightRequest="30"
                              VerticalOptions="Start"
-                             HorizontalOptions="End"                                   
+                             HorizontalOptions="End" 
+                             Clicked="GoToAgendaDayPage"
                     />
                     <Label Text="Adicionar matéria"
                            Grid.Row="0"
@@ -85,10 +86,8 @@
                            FontSize="10"
                            HorizontalOptions="End"
                            VerticalOptions="End"                          
-                           />                 
-                    
-                </Grid>
-                
+                           /> 
+                </Grid>                
             </StackLayout>
 
             <Border
@@ -117,7 +116,6 @@
                     </Image.Clip>
                 </Image>
             </Border>
-
             <HorizontalStackLayout Grid.Row="0" 
                                    Padding="0,45,0,0"
                                    Margin="0">

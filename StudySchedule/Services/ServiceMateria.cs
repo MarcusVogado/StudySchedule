@@ -42,13 +42,13 @@ namespace StudySchedule.Services
                 return false;
             }
         }
-        public Materia Get(Materia materiaId)
+        public Materia Get(int materiaId)
         {
             try
             {
                 Init();
                 var materia = from u in conn.Table<Materia>()
-                              where u.Id == materiaId.Id
+                              where u.Id == materiaId
                               select u;
                 return materia.FirstOrDefault();
             }
@@ -68,7 +68,7 @@ namespace StudySchedule.Services
         public bool Delete(Materia materiaId)
         {
             Init();
-            var materia = Get(materiaId);
+            var materia = Get(materiaId.Id);
             if (materia != null)
             {
                 try
@@ -87,7 +87,7 @@ namespace StudySchedule.Services
         public bool Update(Materia materia)
         {
             Init();
-            var existMateria= Get(materia);
+            var existMateria= Get(materia.Id);
             if(existMateria != null)
             {              
                var confirm = conn.Update(materia);
