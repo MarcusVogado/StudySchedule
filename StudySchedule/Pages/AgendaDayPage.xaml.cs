@@ -9,7 +9,8 @@ public partial class AgendaDayPage : ContentPage
 	private List<Materia> materiasList;
 	[Obsolete]
 	public AgendaDayPage()
-	{objectGetPropertyValues = new ObjectGetPropertyValues();
+	{
+		objectGetPropertyValues = new ObjectGetPropertyValues();
 		InitializeComponent();
 		Task.Run(() =>
 		{
