@@ -6,6 +6,9 @@
              Title="Info">
     <VerticalStackLayout>
         <Label 
-            Text="Informações sobre o aplicativo... "/>
+            Text="Desenvolvido: por Marcus Vogado "/>
+        <Label Text="Instagram: @Marcus.Vogado"/>
+        <Label Text="GitHub MarcusVogado"/>
+        <Label Text="Instagram: @Marcus.Vogado"/>
     </VerticalStackLayout>
 </ContentPage>

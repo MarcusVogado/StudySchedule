@@ -15,8 +15,6 @@ namespace StudySchedule.Services
     {
         string _dbPath;
         private SQLiteConnection conn;
-
-        
         private void Init()
         {
             if (conn != null) return;
@@ -64,7 +62,6 @@ namespace StudySchedule.Services
             var materia = conn.Table<Materia>().ToList();
             return materia;
         }
-
         public bool Delete(Materia materiaId)
         {
             Init();

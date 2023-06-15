@@ -42,7 +42,6 @@ public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
                 CarregarMaterias();
             });
         });
-
     }
     [Obsolete]
     private async void playStop_Clicked(object sender, EventArgs e)
