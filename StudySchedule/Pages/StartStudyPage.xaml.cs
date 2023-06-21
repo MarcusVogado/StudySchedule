@@ -9,7 +9,6 @@ namespace StudySchedule.Pages;
 
 public partial class StartStudyPage : ContentPage, INotifyPropertyChanged
 {
-
     private bool isRunning;
     TimeSpan timer;
     TimeSpan timerItemSelected;

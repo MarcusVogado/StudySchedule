@@ -4,11 +4,40 @@
              x:Class="StudySchedule.Pages.Info"
              NavigationPage.HasBackButton="True"
              Title="Info">
-    <VerticalStackLayout>
-        <Label 
-            Text="Desenvolvido: por Marcus Vogado "/>
-        <Label Text="Instagram: @Marcus.Vogado"/>
-        <Label Text="GitHub MarcusVogado"/>
-        <Label Text="Instagram: @Marcus.Vogado"/>
-    </VerticalStackLayout>
+    
+
+        <Grid RowSpacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+            <Label 
+               Text="Minhas Redes Sociais"                   
+               TextColor="Black"
+               HorizontalTextAlignment="Center"
+               FontSize="25"/>
+            <Label Text="Linkedin"
+                   Grid.Row="1"
+               Style="{StaticResource labelForInfo}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BrowserOpenLinkedin_Clicked" CommandParameter="https://www.linkedin.com/in/marcus-vogado-b5b0b924a/"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="GitHub"
+                   Grid.Row="2"
+               Style="{StaticResource labelForInfo}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BrowserOpenGitHub_Clicked" CommandParameter="https://github.com/MarcusVogado"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label Text="Desenvolvido por: Marcus Vogado do Lago"
+                   Grid.Row="4"
+               FontSize="15"
+               HorizontalTextAlignment="Center"/>
+        </Grid>       
+    
 </ContentPage>

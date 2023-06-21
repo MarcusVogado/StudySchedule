@@ -398,4 +398,13 @@
         <Setter Property="Padding" Value="5,0,5,0"/>
         <Setter Property="TextColor" Value="{StaticResource White}" />
     </Style>
+    <Style x:Key="labelForInfo" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="Padding" Value="5,0,5,0"/>
+        <Setter Property="TextColor" Value="Blue" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="TextDecorations" Value="Underline" />
+    </Style>
+    
 </ResourceDictionary>
