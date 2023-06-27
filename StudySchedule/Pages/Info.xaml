@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudySchedule.Pages.Info"
              NavigationPage.HasBackButton="True"
-             Title="Info">
-    
-
+             Title="Info">  
         <Grid RowSpacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Grid.RowDefinitions>
             <RowDefinition/>
